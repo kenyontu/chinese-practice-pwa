@@ -1,5 +1,7 @@
 # Chinese word training app
 
+https://cn-training.netlify.com
+
 This is a WIP of a simple flashcard app for the chinese words in the "Practical Audio-visual Chinese" books.
 
 I made this app as a way to help classmates and myself in the training of the words in each of the lessons in the books.
