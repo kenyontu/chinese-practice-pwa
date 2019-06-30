@@ -66,7 +66,7 @@ const B3L4 = [
   },
   {
     name: '除了⋯以外',
-    piyin: 'chú le⋯yǔ wài',
+    piyin: 'chú le⋯yǐ wài',
     description: 'besides, except for'
   },
   {
