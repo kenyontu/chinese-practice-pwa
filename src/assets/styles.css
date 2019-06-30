@@ -1,0 +1,13 @@
+html,
+body {
+  margin: 0;
+  background-color: #eeeeee;
+  height: 100%;
+  overflow: auto;
+}
+
+#root {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
