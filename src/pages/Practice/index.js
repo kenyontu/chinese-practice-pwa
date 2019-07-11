@@ -68,6 +68,10 @@ function Practice({match, history}) {
   const classes = useStyles();
   const {currentIndex, toNextIndex} = useRandomIndex(words.length);
 
+  useEffect(() => {
+    setHiddenFields(hiddenFieldsByMode[mode]);
+  }, [mode]);
+
   const currentWord = words[currentIndex];
 
   const handleRevealClick = () => {
