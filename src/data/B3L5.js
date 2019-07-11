@@ -265,7 +265,7 @@ const B3L5 = [
     description: 'minerals, mineral products'
   },
   {
-    name: '媒',
+    name: '煤',
     piyin: 'méi',
     description: 'coal'
   },
