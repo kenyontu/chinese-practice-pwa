@@ -13,6 +13,7 @@ import B1L12 from './B1L12';
 import B3L3 from './B3L3';
 import B3L4 from './B3L4';
 import B3L5 from './B3L5';
+import B3L6 from './B3L6';
 
 const wordsPerLesson = {
   B1L1,
@@ -29,7 +30,8 @@ const wordsPerLesson = {
   B1L12,
   B3L3,
   B3L4,
-  B3L5
+  B3L5,
+  B3L6
 };
 
 export const books = [
@@ -117,6 +119,11 @@ export const books = [
         id: 'B3L5',
         name: 'Lesson 5',
         wordCount: B3L5.length
+      },
+      {
+        id: 'B3L6',
+        name: 'Lesson 6',
+        wordCount: B3L6.length
       }
     ]
   }
