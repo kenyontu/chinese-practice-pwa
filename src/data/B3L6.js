@@ -287,7 +287,7 @@ const B3L6 = [
   },
   {
     name: '死',
-    piyin: 'sí',
+    piyin: 'sǐ',
     description: 'V/SV: to die; to be dead'
   },
   {
