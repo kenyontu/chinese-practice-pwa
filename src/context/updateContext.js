@@ -32,5 +32,10 @@ export const UpdateProvider = ({children}) => {
 
 export const useUpdateContext = () => {
   const updateContext = useContext(UpdateContext);
+
+  // This can only be used if the context's initial value is undefined
+  if (updateContext === undefined) {
+    throw new Error('useUpdateContext must be used within a SpeechProvider');
+  }
   return updateContext;
 };
