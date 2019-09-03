@@ -1,0 +1,27 @@
+.appBar {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.bookTitle {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.bookWordCount {
+  color: #757575;
+}
+
+.lessonContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  align-items: flex-start;
+}
+
+.link {
+  text-decoration: none;
+}

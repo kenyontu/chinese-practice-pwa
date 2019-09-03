@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  background-color: #333;
+  color: white;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+  z-index: 9999;
+}
+
+@media screen and (min-width: 481px) {
+  .container {
+    width: 450px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+.containerNotVisible {
+  transform: scale(0);
+}
+
+.refresh {
+  color: #42a5f5;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.refresh:hover {
+  color: #1e88e5;
+}
+
+.refresh:active {
+  color: #1565c0;
+}

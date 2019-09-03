@@ -8,39 +8,11 @@ import {
   Card,
   CardActionArea
 } from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
 import {Link} from 'react-router-dom';
 import {books} from '../data/index';
-
-const useStyles = makeStyles({
-  appBar: {
-    zIndex: 100,
-    position: 'fixed',
-    top: 0,
-    right: 0,
-    left: 0
-  },
-  bookTitle: {
-    marginTop: '15px',
-    marginBottom: '10px'
-  },
-  bookWordCount: {
-    color: '#757575'
-  },
-  lessonContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    padding: '10px 15px'
-  },
-  link: {
-    textDecoration: 'none'
-  }
-});
+import lessonsStyles from './Lessons.module.css';
 
 function Lessons() {
-  const classes = useStyles();
-
   return (
     <div>
       <AppBar position="sticky">
@@ -53,7 +25,7 @@ function Lessons() {
         {books.map(b => (
           <div key={b.id}>
             <Typography
-              className={classes.bookTitle}
+              className={lessonsStyles.bookTitle}
               variant="h5"
               color="primary"
             >
@@ -64,14 +36,14 @@ function Lessons() {
                 <Grid key={l.id} item xs={12} sm={6} md={4}>
                   <Link
                     to={`/lessons/${l.id}/practice`}
-                    className={classes.link}
+                    className={lessonsStyles.link}
                   >
                     <Card>
-                      <CardActionArea className={classes.lessonContainer}>
+                      <CardActionArea className={lessonsStyles.lessonContainer}>
                         <Typography variant="h6">{l.name}</Typography>
                         <Typography
                           variant="body2"
-                          className={classes.bookWordCount}
+                          className={lessonsStyles.bookWordCount}
                         >
                           {`Words: ${l.wordCount}`}
                         </Typography>

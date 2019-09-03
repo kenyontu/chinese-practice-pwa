@@ -9,16 +9,18 @@ import {
   BottomNavigationAction,
   Fab
 } from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
 import EditIcon from '@material-ui/icons/Edit';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
+import FilterListIcon from '@material-ui/icons/FilterList';
 
 import {getWordsByLesson} from '../../data/index';
 import useRandomIndex from '../../hooks/useRandomIndex';
 import Detail from './Detail';
+import FilterWordsDialog from '../../components/FilterWordsDialog';
+import styles from './index.module.css';
 
 const hiddenFieldsByMode = {
   0: {
@@ -33,39 +35,14 @@ const hiddenFieldsByMode = {
   }
 };
 
-const speech = new SpeechSynthesisUtterance();
-speech.lang = 'zh-CN';
-
-const useStyles = makeStyles(theme => ({
-  backArrowLink: {
-    color: 'inherit'
-  },
-  root: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  container: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
-  button: {
-    display: 'relative',
-    transform: 'translateY(50%)',
-    zIndex: 1400
-  }
-}));
-
 function Practice({match, history}) {
   const lessonId = match.params.lesson_id;
   const words = getWordsByLesson(match.params.lesson_id);
 
   const [mode, setMode] = useSelectedMode(0);
   const [hidden, setHidden] = useState(true);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [hiddenFields, setHiddenFields] = useState(hiddenFieldsByMode[mode]);
-  const classes = useStyles();
   const {currentIndex, toNextIndex} = useRandomIndex(words.length);
 
   useEffect(() => {
@@ -83,23 +60,38 @@ function Practice({match, history}) {
     setTimeout(toNextIndex, 0);
   };
 
+  const handleFilterClick = () => {
+    setIsFilterOpen(true);
+  };
+
+  const handleFilterClose = () => {
+    setIsFilterOpen(false);
+  };
+
   const onModeChange = (event, newMode) => {
     setMode(newMode);
     setHiddenFields(hiddenFieldsByMode[newMode]);
   };
 
   return (
-    <div className={classes.root}>
+    <div className={styles.root}>
+      <FilterWordsDialog open={isFilterOpen} onClose={handleFilterClose} />
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" color="inherit" onClick={history.goBack}>
             <ArrowBackIcon />
           </IconButton>
 
-          <Typography variant="h6">{lessonId} practice</Typography>
+          <Typography variant="h6" className={styles.title}>
+            {lessonId} practice
+          </Typography>
+
+          <IconButton edge="start" color="inherit" onClick={handleFilterClick}>
+            <FilterListIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
-      <Container maxWidth="md" className={classes.container}>
+      <Container maxWidth="md" className={styles.container}>
         {currentWord && (
           <Detail
             word={currentWord}
@@ -112,7 +104,7 @@ function Practice({match, history}) {
           <Fab
             color="secondary"
             size="large"
-            className={classes.button}
+            className={styles.button}
             onClick={handleRevealClick}
           >
             <VisibilityOffIcon />
@@ -121,7 +113,7 @@ function Practice({match, history}) {
           <Fab
             color="primary"
             size="large"
-            className={classes.button}
+            className={styles.button}
             onClick={handleNextClick}
           >
             <SkipNextIcon />

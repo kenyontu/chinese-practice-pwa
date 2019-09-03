@@ -4,7 +4,10 @@ const UpdateContext = React.createContext();
 
 export const UpdateProvider = ({children}) => {
   const [updateAvailable, setUpdateAvailable] = useState(false);
-  const [updateApp, setUpdateApp] = useState(() => {});
+  // The value is a function that returns another function
+  // because when useState receives a function, it gets executed
+  // and its return value is used as the state value
+  const [updateApp, setUpdateApp] = useState(() => () => {});
 
   useEffect(() => {
     const handleUpdateReady = event => {

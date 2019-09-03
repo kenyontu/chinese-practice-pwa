@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {StylesProvider} from '@material-ui/styles';
 
 import './assets/styles.css';
 import {UpdateProvider} from './context/updateContext';
+import {SpeechProvider} from './context/speechContext';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <UpdateProvider>
-    <App />
+    <SpeechProvider>
+      <StylesProvider injectFirst>
+        <App />
+      </StylesProvider>
+    </SpeechProvider>
   </UpdateProvider>,
   document.getElementById('root')
 );

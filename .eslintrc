@@ -1,11 +1,12 @@
 {
   "extends": [
+    "eslint:recommended",
     "prettier",
     "plugin:prettier/recommended",
     "plugin:react/recommended"
   ],
   "plugins": ["react"],
-  "env": {},
+  "env": {"browser": true, "node": true},
   "rules": {
     "strict": 2,
     "indent": ["error", 2, {"SwitchCase": 1}],

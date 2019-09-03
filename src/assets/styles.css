@@ -1,13 +1,17 @@
-html,
+html {
+  background-color: #eeeeee;
+  font-size: 15px;
+  height: 100%;
+}
+
 body {
   margin: 0;
-  background-color: #eeeeee;
   height: 100%;
-  overflow: auto;
+  overflow: none;
 }
 
 #root {
   height: 100%;
-  overflow: auto;
+  overflow: none;
   -webkit-overflow-scrolling: touch;
 }
