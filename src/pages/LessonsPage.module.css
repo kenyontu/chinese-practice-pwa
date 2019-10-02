@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.book {
+  display: flex;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+.bookHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  background-color: var(--header-background);
+}
+
+.bookTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: var(--header-content-color);
+}
+
+.lessons {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1px;
+  background-color: #dddddd;
+}
+
+.book:not(:last-child) .lessons {
+  border-bottom: 5px solid #ddd;
+}
+
+.book:last-child .lessons {
+  border-bottom: 1px solid #ddd;
+}
+
+.lesson {
+  font-size: 1.2rem;
+  background-color: white;
+  text-decoration: none;
+  padding: 1rem 0;
+  text-align: center;
+  color: #333;
+  font-weight: 200;
+}
+
+.lesson span {
+  font-weight: 800;
+}

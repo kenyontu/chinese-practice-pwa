@@ -1,9 +1,7 @@
 {
-  "arrowParens": "avoid",
-  "bracketSpacing": false,
-  "jsxBracketSameLine": false,
-  "printWidth": 80,
+  "endOfLine": "lf",
+  "semi": false,
   "singleQuote": true,
   "tabWidth": 2,
-  "useTabs": false
+  "trailingComma": "es5"
 }

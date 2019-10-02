@@ -1,0 +1,31 @@
+.container {
+  padding-top: var(--header-height);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: white;
+}
+
+.word {
+  padding: 1rem 0.7rem;
+}
+
+.word:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+.name {
+  font-size: 2rem;
+}
+
+.name span {
+  font-size: 1.2rem;
+  color: #999;
+  margin-left: 0.3rem;
+}
+
+.description {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: #444;
+}

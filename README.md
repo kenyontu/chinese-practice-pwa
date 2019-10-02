@@ -14,9 +14,8 @@ The icons were generated using https://favicon.io/favicon-generator/
 - [x] Add lessons from book 1
 - [ ] Add lessons from book 2
 - [x] Proper service worker update
-- [ ] View a list of all characters in a lesson
+- [x] View a list of all characters in a lesson
 - [ ] Toggle which characters are used in a practice session
-- [ ] Changelog
 
 ## Known issues
 
