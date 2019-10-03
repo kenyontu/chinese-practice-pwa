@@ -68,7 +68,7 @@ const PracticePage: React.FC<Props> = ({ match }) => {
             </div>
 
             <button className={styles.nextBtn} onClick={handleNextClick}>
-              Next <FontAwesomeIcon icon="chevron-right" />
+              <FontAwesomeIcon icon="arrow-alt-circle-right" />
             </button>
           </div>
         </>

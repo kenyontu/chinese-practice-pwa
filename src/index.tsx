@@ -4,7 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faDumbbell,
   faArrowLeft,
-  faChevronRight,
+  faArrowAltCircleRight,
 } from '@fortawesome/free-solid-svg-icons'
 import 'normalize.css'
 import './index.css'
@@ -13,7 +13,7 @@ import App from './app/App'
 import { SpeechProvider } from './context/speechContext'
 import { UpdateProvider } from './context/updateContext'
 
-library.add(faDumbbell, faArrowLeft, faChevronRight)
+library.add(faDumbbell, faArrowLeft, faArrowAltCircleRight)
 
 ReactDOM.render(
   <UpdateProvider>
