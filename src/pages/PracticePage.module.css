@@ -6,7 +6,7 @@
   flex-direction: column;
   box-sizing: border-box;
   flex-wrap: nowrap;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .questionContainer {
@@ -39,7 +39,8 @@
   align-items: center;
   justify-content: center;
   color: #00a8e8;
-  font-size: 1.5rem;
+  font-weight: 200;
+  font-size: 1.8rem;
   position: absolute;
   top: 0;
   right: 0;
@@ -53,12 +54,33 @@
     #333 15px,
     #333 30px
   );
+  transform: translate(0);
+  transform-origin: left top;
+  transition: transform 250ms;
 }
 
 .hideCoverOverlay {
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 250ms ease-out, transform 350ms ease-out;
+  --cos-60: 0.5;
+  transform: translate(-60%, calc(100% - (var(--cos-60) * 100vw))) rotate(30deg);
+  transform-origin: left top;
+  transition: transform 250ms;
+}
+
+:not(.hideCoverOverlay) + .answerContent {
+  animation: tempHide;
+  animation-duration: 260ms;
+}
+
+@keyframes tempHide {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .revealedContainer {
