@@ -1,18 +1,19 @@
 declare module 'types' {
   export interface Word {
+    id: string
     name: string
     piyin: string
     description: string
   }
 
-  export interface Lesson {
+  export interface WordList {
     id: string
     name: string
   }
 
-  export interface Book {
+  export interface Group {
     id: string
     name: string
-    lessons: Lesson[]
+    wordLists: WordList[]
   }
 }

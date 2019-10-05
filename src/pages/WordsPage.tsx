@@ -32,7 +32,7 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
       />
 
       {words.map(word => (
-        <div key={`${word.name}${word.description}`} className={styles.word}>
+        <div key={word.id} className={styles.word}>
           <p className={styles.name}>
             {word.name}
             <span>{word.piyin}</span>

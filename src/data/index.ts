@@ -1,4 +1,4 @@
-import { Word, Lesson } from 'types'
+import { Word, WordList } from 'types'
 
 import B1L1 from './B1L1'
 import B1L2 from './B1L2'
@@ -40,7 +40,7 @@ const wordsPerLesson: { [key: string]: Word[] } = {
   B3L10,
 }
 
-export const lessonsByBook: { [key: string]: Lesson[] } = Object.keys(
+export const lessonsByBook: { [key: string]: WordList[] } = Object.keys(
   wordsPerLesson
 ).reduce((a: { [key: string]: { id: string; name: string }[] }, lesson) => {
   const bookId = lesson.substr(1, 1)
