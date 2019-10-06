@@ -1,0 +1,215 @@
+import { WordList } from 'types'
+
+const B2L4: WordList = {
+  id: 'B2L4',
+  name: 'Lesson 4',
+  words: [
+    {
+      id: 'py_dakZQ',
+      name: '以後',
+      piyin: 'yǐ hòu',
+      description: 'after, afterwards',
+    },
+    {
+      id: '57WBPrI2K',
+      name: '打電話',
+      piyin: 'dǎ diàn huà',
+      description: 'to make a phone call',
+    },
+    {
+      id: 'kjOPX5M2G',
+      name: '電話',
+      piyin: 'diàn huà',
+      description: 'telephone, call',
+    },
+    {
+      id: 'DsFwFcdds',
+      name: '喂',
+      piyin: 'wéi',
+      description: 'a common telephone or intercom greeting "hello"',
+    },
+    {
+      id: 'IupD-4KCE',
+      name: '借',
+      piyin: 'jiè',
+      description: 'to borrow, to lend',
+    },
+    {
+      id: '4w0vqZN24',
+      name: '以前',
+      piyin: 'yǐ qián',
+      description: 'before, ago, formely',
+    },
+    {
+      id: 'A2b6_4Oax',
+      name: '大概',
+      piyin: 'dà gài',
+      description: 'probably',
+    },
+    {
+      id: 'Ywbaj0ain',
+      name: '麻煩',
+      piyin: 'má fán',
+      description: 'to be annoyed, to bother, an annoyance, troublesome',
+    },
+    {
+      id: 'alsaCqbcy',
+      name: '煩',
+      piyin: 'fán',
+      description: 'to be vexed, annoyed, to anoy',
+    },
+    {
+      id: '5s5yreyn7',
+      name: '告訴',
+      piyin: 'gào sù',
+      description: 'to tell, to inform',
+    },
+    {
+      id: 'kyrW6qnba',
+      name: '過',
+      piyin: 'guò',
+      description:
+        'a suffix indicating completition of an action, or completition of an action as an experience',
+    },
+    {
+      id: 'mM24ETTBU',
+      name: '記得',
+      piyin: 'jì de',
+      description: 'to remember',
+    },
+    {
+      id: 'U49m8Z6EV',
+      name: '中學',
+      piyin: 'zhōng xué',
+      description: 'middle school',
+    },
+    {
+      id: 'JTHAoSI6i',
+      name: '又',
+      piyin: 'yòu',
+      description: 'again (in the past)',
+    },
+    {
+      id: 'knOpZY4qj',
+      name: '認識',
+      piyin: 'rèn shì',
+      description: 'to recognize, to realize',
+    },
+    {
+      id: 'ngjKWynOZ',
+      name: '認得',
+      piyin: 'rèn de',
+      description: 'to know (as in to recognize)',
+    },
+    {
+      id: 'iu34YKk2hG',
+      name: '次',
+      piyin: 'cì',
+      description: "measure word for an action or event's time",
+    },
+    {
+      id: 'e3cFyxm7Wk',
+      name: '本來',
+      piyin: 'běn lái',
+      description: 'originally',
+    },
+    {
+      id: 'P2rOWs-P5j',
+      name: '後來',
+      piyin: 'hòu lái',
+      description: 'afterwards, later on',
+    },
+    {
+      id: 'Qtb7chodXm',
+      name: '恐怕',
+      piyin: 'kǒng pà',
+      description: "(I'm) afraid that, perhaps, probably",
+    },
+    {
+      id: 'QWH-DpfGWf',
+      name: '怕',
+      piyin: 'pà',
+      description: 'to fear',
+    },
+    {
+      id: 'FTweqC5EK5',
+      name: '決定',
+      piyin: 'jué dìng',
+      description: 'to decide',
+    },
+    {
+      id: 'StgOFYvyGf',
+      name: '接電話',
+      piyin: 'jiē diàn huà',
+      description: 'to answer the phone, to pick up or take a call',
+    },
+    {
+      id: 'sE5E1eMwO-',
+      name: '見面',
+      piyin: 'jiàn miàn',
+      description: 'to meet someone, to see someone',
+    },
+    {
+      id: 'QpxHfqN3AW',
+      name: '留',
+      piyin: 'liú',
+      description: 'to leave (message, thing etc), to stay, to remain',
+    },
+    {
+      id: '6cFWm2KYhG',
+      name: '子條',
+      piyin: 'zì tiáo',
+      description: 'a note',
+    },
+    {
+      id: 'EXOOPikIzT',
+      name: '號碼',
+      piyin: 'hào mǎ',
+      description: 'number',
+    },
+    {
+      id: 'y-kSg3fKbH',
+      name: '從前',
+      piyin: 'cóng qián',
+      description: 'formerly, in the past, used to',
+    },
+    {
+      id: '21VnpxIXxx',
+      name: '洗',
+      piyin: 'xǐ',
+      description: 'to wash',
+    },
+    {
+      id: '5eaKjPM30R',
+      name: '手',
+      piyin: 'shǒu',
+      description: 'hand (M: 隻 zhī, 雙 shuāng)',
+    },
+    {
+      id: 'fIwFMH7PjS',
+      name: '高興',
+      piyin: 'gāo xìng',
+      description: 'to be happy',
+    },
+    {
+      id: 'r8z8LrdmF9',
+      name: '頭',
+      piyin: 'tóu',
+      description: 'first, the top',
+    },
+    {
+      id: 'oh8--ugH0b',
+      name: '義大利',
+      piyin: 'yì dà lì',
+      description: 'Italy',
+    },
+    {
+      id: '-135CUyYqJ',
+      name: '郵差',
+      piyin: 'yóu chāi',
+      description: 'mail carrier, postman',
+    },
+  ],
+}
+
+export default B2L4

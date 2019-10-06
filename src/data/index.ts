@@ -1,5 +1,6 @@
 import { Group, WordList } from 'types'
 
+// B1
 import B1L1 from './B1L1'
 import B1L2 from './B1L2'
 import B1L3 from './B1L3'
@@ -12,15 +13,22 @@ import B1L9 from './B1L9'
 import B1L10 from './B1L10'
 import B1L11 from './B1L11'
 import B1L12 from './B1L12'
+
+// B2
 import B2L1 from './B2L1'
 import B2L2 from './B2L2'
 import B2L3 from './B2L3'
+import B2L4 from './B2L4'
+
+// B3
 import B3L3 from './B3L3'
 import B3L4 from './B3L4'
 import B3L5 from './B3L5'
 import B3L6 from './B3L6'
 import B3L7 from './B3L7'
 import B3L10 from './B3L10'
+
+// ETC
 import chengyu from './chengyu'
 
 export const groups: { [key: string]: Group } = {
@@ -45,7 +53,7 @@ export const groups: { [key: string]: Group } = {
   '2': {
     id: '2',
     name: 'Book 2',
-    wordLists: [B2L1, B2L2, B2L3],
+    wordLists: [B2L1, B2L2, B2L3, B2L4],
   },
   '3': {
     id: '3',
@@ -75,6 +83,7 @@ const wordLists: { [key: string]: WordList } = {
   B2L1,
   B2L2,
   B2L3,
+  B2L4,
   B3L3,
   B3L4,
   B3L5,
