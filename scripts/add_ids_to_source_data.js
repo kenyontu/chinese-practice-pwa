@@ -15,7 +15,7 @@ files.forEach(file => {
   const filePath = `${SOURCE_DATA_FOLDER}/${file}`
 
   fs.readFile(filePath, 'utf8', (err, contents) => {
-    const lines = contents.split('\n')
+    const [firstLine, ...lines] = contents.split('\n')
 
     const newLines = lines.map(line => {
       const columns = line.split(LINE_SPLIT_CHAR)
@@ -27,6 +27,8 @@ files.forEach(file => {
       return line
     })
 
-    fs.writeFile(filePath, newLines.join('\n'), error => console.log(error))
+    fs.writeFile(filePath, [firstLine, ...newLines].join('\n'), error =>
+      console.log(error)
+    )
   })
 })

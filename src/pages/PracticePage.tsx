@@ -6,7 +6,7 @@ import { Word } from 'types'
 
 import styles from './PracticePage.module.css'
 import Header from '../components/Header'
-import { getWordsByLesson } from '../data'
+import { getWordList } from '../data'
 import { shuffle } from '../utils'
 
 type Props = {} & RouteComponentProps<{ lesson_id: string }>
@@ -18,8 +18,10 @@ const PracticePage: React.FC<Props> = ({ match }) => {
   const [revealed, setRevealed] = useState(false)
 
   useEffect(() => {
-    const lessonWords = getWordsByLesson(lessonId)
-    setWords(shuffle(lessonWords))
+    const wordList = getWordList(lessonId)
+    if (wordList !== null) {
+      setWords(shuffle(wordList.words))
+    }
   }, [lessonId])
 
   const handleAnswerClick = () => {
@@ -33,8 +35,11 @@ const PracticePage: React.FC<Props> = ({ match }) => {
     setRevealed(false)
 
     if (currentWordIndex === words.length - 1) {
-      setWords(shuffle(getWordsByLesson(lessonId)))
-      setCurrentWordIndex(0)
+      const wordList = getWordList(lessonId)
+      if (wordList !== null) {
+        setWords(shuffle(wordList.words))
+        setCurrentWordIndex(0)
+      }
     } else {
       setCurrentWordIndex(currentWordIndex + 1)
     }

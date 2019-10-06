@@ -1,0 +1,246 @@
+import { WordList } from 'types'
+
+const B2L2: WordList = {
+  id: 'B2L2',
+  name: 'Lesson 2',
+  words: [
+    {
+      id: '805yAYbH',
+      name: '郵局',
+      piyin: 'yóu jú',
+      description: 'post office',
+    },
+    {
+      id: 'O9o8upPNO',
+      name: '往',
+      piyin: 'wǎng',
+      description: 'to go toward',
+    },
+    {
+      id: 'uFcPhfRio',
+      name: '一直',
+      piyin: 'yì zhí',
+      description: 'straight, constantly, continuously',
+    },
+    {
+      id: 'lbm2We923',
+      name: '第',
+      piyin: 'dì',
+      description: 'a prefix for ordinal numbers',
+    },
+    {
+      id: 'mG9ccHmNS',
+      name: '十字路口',
+      piyin: 'shí zì lù kǒu',
+      description: 'intersection',
+    },
+    {
+      id: 'HljwaG9ce',
+      name: '路口',
+      piyin: 'lù kǒu',
+      description: 'street entrance',
+    },
+    {
+      id: 'WHu6c0Ad0',
+      name: '右',
+      piyin: 'yòu',
+      description: 'right',
+    },
+    {
+      id: 'UWNVnSjJF',
+      name: '轉',
+      piyin: 'zhuǎn',
+      description: 'to turn',
+    },
+    {
+      id: 'WXJXlJABa',
+      name: '經過',
+      piyin: 'jīng guò',
+      description: 'to pass by, to pass through',
+    },
+    {
+      id: 'ZPvJjr_Sz',
+      name: '百貨公司',
+      piyin: 'bǎi huò gōng sī',
+      description: 'department store (M: 家 jiā)',
+    },
+    {
+      id: 'w0ZK97jBr',
+      name: '再',
+      piyin: 'zài',
+      description: 'then',
+    },
+    {
+      id: 'P7J-iqJrL',
+      name: '要是',
+      piyin: 'yào shì',
+      description: 'if',
+    },
+    {
+      id: 'bujeFIGsZ',
+      name: '幫',
+      piyin: 'bāng',
+      description: 'to help, to assist',
+    },
+    {
+      id: 'sPhlvOThX',
+      name: '幫忙',
+      piyin: 'bāng máng',
+      description: 'to help someone do something',
+    },
+    {
+      id: 'O9IPEVzDm',
+      name: '城市',
+      piyin: 'chéng shì',
+      description: 'city',
+    },
+    {
+      id: 'SrySZjBo7',
+      name: '城',
+      piyin: 'chéng',
+      description: 'city, city wall',
+    },
+    {
+      id: 'FYB6F9yIsz',
+      name: '市',
+      piyin: 'shì',
+      description: 'city municipality, market',
+    },
+    {
+      id: 'efCY64UBRN',
+      name: '西部',
+      piyin: 'xī bù',
+      description: 'western part, western area',
+    },
+    {
+      id: 'JN506m7b3l',
+      name: '西',
+      piyin: 'xī',
+      description: 'west',
+    },
+    {
+      id: 'PVVZGSZx0w',
+      name: '部',
+      piyin: 'bù',
+      description: 'part, area',
+    },
+    {
+      id: 'sOmxXwRT4J',
+      name: '東部',
+      piyin: 'dōng bù',
+      description: 'eastern part, eastern area',
+    },
+    {
+      id: 'mkb1xzKqUC',
+      name: '東',
+      piyin: 'dōng',
+      description: 'east',
+    },
+    {
+      id: 'x1EnlxLMUv',
+      name: '台北',
+      piyin: 'tái běi',
+      description: 'Taipei',
+    },
+    {
+      id: 'J-QsTa-7X0',
+      name: '北',
+      piyin: 'běi',
+      description: 'north',
+    },
+    {
+      id: '57-Dz0AupF',
+      name: '直飛',
+      piyin: 'zhí fēi',
+      description: 'to fly directly',
+    },
+    {
+      id: 'xphC_SbyB_',
+      name: '然後',
+      piyin: 'rán hòu',
+      description: 'and then',
+    },
+    {
+      id: '3AgGpLfWI-',
+      name: '先',
+      piyin: 'xiān',
+      description: 'first, in advance, before',
+    },
+    {
+      id: 'kfShHjBn5O',
+      name: '離開',
+      piyin: 'lí kāi',
+      description: 'to leave',
+    },
+    {
+      id: 'ErbTTFauYl',
+      name: '起飛',
+      piyin: 'qǐ fēi',
+      description: 'to take off',
+    },
+    {
+      id: 'j7jDGXnlEw',
+      name: '不客氣',
+      piyin: 'bú kè qì',
+      description: "you're welcome",
+    },
+    {
+      id: 'niDsFyr0Ie',
+      name: '客氣',
+      piyin: 'kè qì',
+      description: 'to be polite',
+    },
+    {
+      id: 'RXrXY5LulE',
+      name: '南',
+      piyin: 'nán',
+      description: 'south',
+    },
+    {
+      id: '0SZ7yW3qUz',
+      name: '海',
+      piyin: 'hǎi',
+      description: 'ocean, sea',
+    },
+    {
+      id: 'SGP1JsoHQs',
+      name: '高',
+      piyin: 'gāo',
+      description: 'to be tall, to be high',
+    },
+    {
+      id: 'Qp3_3v0B91',
+      name: '河',
+      piyin: 'hé',
+      description: 'river',
+    },
+    {
+      id: 'htr_-g5slu',
+      name: '條',
+      piyin: 'tiáo',
+      description:
+        'measure word for long narrow things such as rivers, roads, fish etc',
+    },
+    {
+      id: 'dF8Jnv7sTk',
+      name: '左',
+      piyin: 'zuǒ',
+      description: 'left',
+    },
+    {
+      id: 'EdZs2I7tVa',
+      name: '街',
+      piyin: 'jiē',
+      description: 'street',
+    },
+    {
+      id: 'VPrR2woMNa',
+      name: '吧',
+      piyin: 'ba',
+      description:
+        'sentence final particle, indicating a request or suggestion',
+    },
+  ],
+}
+
+export default B2L2

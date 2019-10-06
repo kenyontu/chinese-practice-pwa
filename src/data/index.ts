@@ -1,4 +1,4 @@
-import { Word, WordList } from 'types'
+import { Group, WordList } from 'types'
 
 import B1L1 from './B1L1'
 import B1L2 from './B1L2'
@@ -12,14 +12,53 @@ import B1L9 from './B1L9'
 import B1L10 from './B1L10'
 import B1L11 from './B1L11'
 import B1L12 from './B1L12'
+import B2L1 from './B2L1'
+import B2L2 from './B2L2'
 import B3L3 from './B3L3'
 import B3L4 from './B3L4'
 import B3L5 from './B3L5'
 import B3L6 from './B3L6'
 import B3L7 from './B3L7'
 import B3L10 from './B3L10'
+import chengyu from './chengyu'
 
-const wordsPerLesson: { [key: string]: Word[] } = {
+export const groups: { [key: string]: Group } = {
+  '1': {
+    id: '1',
+    name: 'Book 1',
+    wordLists: [
+      B1L1,
+      B1L2,
+      B1L3,
+      B1L4,
+      B1L5,
+      B1L6,
+      B1L7,
+      B1L8,
+      B1L9,
+      B1L10,
+      B1L11,
+      B1L12,
+    ],
+  },
+  '2': {
+    id: '2',
+    name: 'Book 2',
+    wordLists: [B2L1, B2L2],
+  },
+  '3': {
+    id: '3',
+    name: 'Book 3',
+    wordLists: [B3L3, B3L4, B3L5, B3L6, B3L7, B3L10],
+  },
+  etc: {
+    id: 'etc',
+    name: 'Etc',
+    wordLists: [chengyu],
+  },
+}
+
+const wordLists: { [key: string]: WordList } = {
   B1L1,
   B1L2,
   B1L3,
@@ -32,29 +71,16 @@ const wordsPerLesson: { [key: string]: Word[] } = {
   B1L10,
   B1L11,
   B1L12,
+  B2L1,
+  B2L2,
   B3L3,
   B3L4,
   B3L5,
   B3L6,
   B3L7,
   B3L10,
+  chengyu,
 }
 
-export const lessonsByBook: { [key: string]: WordList[] } = Object.keys(
-  wordsPerLesson
-).reduce((a: { [key: string]: { id: string; name: string }[] }, lesson) => {
-  const bookId = lesson.substr(1, 1)
-  if (!a[bookId]) {
-    a[bookId] = []
-  }
-
-  a[bookId].push({
-    id: lesson,
-    name: lesson.substring(3),
-  })
-
-  return a
-}, {})
-
-export const getWordsByLesson = (lessonId: string) =>
-  lessonId ? wordsPerLesson[lessonId] : []
+export const getWordList = (wordListId: string): WordList | null =>
+  wordListId ? wordLists[wordListId] : null

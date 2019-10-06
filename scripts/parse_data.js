@@ -10,7 +10,7 @@ files.forEach(file => {
   const filePath = `${SOURCE_DATA_FOLDER}/${file}`
 
   fs.readFile(filePath, 'utf8', (err, contents) => {
-    const lines = contents.split('\n')
+    const [lessonName, ...lines] = contents.split('\n')
 
     const words = lines.map(line => {
       const [id, name, piyin, description] = line.split(LINE_SPLIT_CHAR)
@@ -23,9 +23,13 @@ files.forEach(file => {
       }
     })
 
-    const content = `import { Word } from 'types'
+    const content = `import { WordList } from 'types'
 
-    const ${file}: Word[] = ${JSON.stringify(words, null, 2)}
+    const ${file}: WordList = {
+      id: '${file}',
+      name: '${lessonName}',
+      words: ${JSON.stringify(words, null, 2)}
+    }
     
     export default ${file}
     `

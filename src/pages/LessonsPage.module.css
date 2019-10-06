@@ -5,13 +5,13 @@
   position: relative;
 }
 
-.book {
+.group {
   display: flex;
   flex-shrink: 0;
   flex-basis: auto;
 }
 
-.bookHeader {
+.groupHeader {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@
   background-color: var(--header-background);
 }
 
-.bookTitle {
+.groupTitle {
   font-size: 1.1rem;
   font-weight: 800;
   transform: rotate(-90deg);
@@ -28,7 +28,7 @@
   color: var(--header-content-color);
 }
 
-.lessons {
+.wordLists {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -36,15 +36,15 @@
   background-color: #dddddd;
 }
 
-.book:not(:last-child) .lessons {
+.group:not(:last-child) .wordLists {
   border-bottom: 5px solid #ddd;
 }
 
-.book:last-child .lessons {
+.group:last-child .wordLists {
   border-bottom: 1px solid #ddd;
 }
 
-.lesson {
+.wordList {
   font-size: 1.2rem;
   background-color: white;
   text-decoration: none;
@@ -54,6 +54,6 @@
   font-weight: 200;
 }
 
-.lesson span {
+.wordList span {
   font-weight: 800;
 }

@@ -9,6 +9,7 @@ declare module 'types' {
   export interface WordList {
     id: string
     name: string
+    words: Word[]
   }
 
   export interface Group {

@@ -1,30 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { lessonsByBook } from '../data'
+import { groups } from '../data'
 import styles from './LessonsPage.module.css'
 
 const LessonsPage: React.FC = () => {
   return (
     <div className={styles.container}>
-      {Object.keys(lessonsByBook).map(bookKey => {
-        const lessons = lessonsByBook[bookKey]
+      {Object.keys(groups).map(groupKey => {
+        const wordLists = groups[groupKey].wordLists
 
         return (
-          <div key={bookKey} className={styles.book}>
-            <div className={styles.bookHeader}>
-              <h2 className={styles.bookTitle}>Book {bookKey}</h2>
+          <div key={groupKey} className={styles.group}>
+            <div className={styles.groupHeader}>
+              <h2 className={styles.groupTitle}>{groups[groupKey].name}</h2>
             </div>
-            <div className={styles.lessons}>
-              {lessons.map(lesson => (
-                <Link
-                  key={lesson.id}
-                  className={styles.lesson}
-                  to={`/lessons/${lesson.id}`}
-                >
-                  lesson <span>{lesson.name}</span>
-                </Link>
-              ))}
+            <div className={styles.wordLists}>
+              {wordLists.map(wordList => {
+                const splitted = wordList.name.split(' ')
+                return (
+                  <Link
+                    key={wordList.id}
+                    className={styles.wordList}
+                    to={`/lessons/${wordList.id}`}
+                  >
+                    {splitted.length === 2 ? (
+                      <>
+                        {splitted[0]} <span>{splitted[1]}</span>
+                      </>
+                    ) : (
+                      <span>{splitted[0]}</span>
+                    )}
+                  </Link>
+                )
+              })}
             </div>
           </div>
         )

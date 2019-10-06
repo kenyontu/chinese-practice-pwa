@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { Word } from 'types'
 
-import { getWordsByLesson } from '../data'
+import { getWordList } from '../data'
 import styles from './WordsPage.module.css'
 import Header from '../components/Header'
 import HeaderButton from '../components/HeaderButton'
@@ -12,10 +12,15 @@ type Props = {} & RouteComponentProps<{ lesson_id: string }>
 const WordsPage: React.FC<Props> = ({ match, history }) => {
   const lessonId = match.params.lesson_id
   const [words, setWords] = useState<Word[]>([])
+  const [title, setTitle] = useState<string>('')
 
   useEffect(() => {
-    const lessonWords = getWordsByLesson(match.params.lesson_id)
-    setWords(lessonWords)
+    const lesson = getWordList(match.params.lesson_id)
+
+    if (lesson !== null) {
+      setTitle(lesson.name)
+      setWords(lesson.words)
+    }
   }, [match.params.lesson_id])
 
   const handlePracticeClick = () => {
@@ -25,7 +30,7 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
   return (
     <div className={styles.container}>
       <Header
-        title={`Lesson ${lessonId.substr(3)}`}
+        title={title}
         right={<HeaderButton onClick={handlePracticeClick} icon="dumbbell" />}
         hasNavigateBack
         hideOnScroll
