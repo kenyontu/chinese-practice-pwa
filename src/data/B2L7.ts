@@ -9,7 +9,7 @@ const B2L7: WordList = {
       name: '把',
       piyin: 'bǎ',
       description:
-        'coverb indicating the handling of something. It cannot be translated into english. Used to draw attention the the object of a sentence',
+        'coverb indicating the handling of something. It cannot be translated into english. Used to draw attention to the object of a sentence',
     },
     {
       id: 'Pd91U4cM-',
