@@ -1,0 +1,252 @@
+import { WordList } from 'types'
+
+const B2L8: WordList = {
+  id: 'B2L8',
+  name: 'Lesson 8',
+  words: [
+    {
+      id: 'DRSoyiyt',
+      name: '著',
+      piyin: 'zhe',
+      description:
+        'a verbal suffix, indicating that the action or state is continuing',
+    },
+    {
+      id: 'haxMjdN4I',
+      name: '好了',
+      piyin: 'hǎo le',
+      description: 'to be ready',
+    },
+    {
+      id: 'swykdFeBg',
+      name: '化妝',
+      piyin: 'huà zhuāng',
+      description: 'to put on make-up',
+    },
+    {
+      id: 'LPWYTzFqp',
+      name: '換',
+      piyin: 'huàn',
+      description: 'to change',
+    },
+    {
+      id: 'hiiMwmePC',
+      name: '黃色',
+      piyin: 'huáng sè',
+      description: 'yellow',
+    },
+    {
+      id: 'TajgSmBoB',
+      name: '黃',
+      piyin: 'huáng',
+      description: 'to be yellow',
+    },
+    {
+      id: 'tWt_vhKGq',
+      name: '色',
+      piyin: 'sè',
+      description: 'color',
+    },
+    {
+      id: 'oCsZVA_X_',
+      name: '漂亮',
+      piyin: 'piào liàng',
+      description: 'to be beautiful, to be pretty',
+    },
+    {
+      id: '4yRb9tqlC',
+      name: '雙',
+      piyin: 'shuāng',
+      description: 'pair of',
+    },
+    {
+      id: 'QXUtU3h6v',
+      name: '白',
+      piyin: 'bái',
+      description: 'to be white',
+    },
+    {
+      id: 'LxZi6WaOD',
+      name: '皮靴',
+      piyin: 'pí xié',
+      description: 'leather shoes (M: 雙 shuāng)',
+    },
+    {
+      id: '1GBbcQyFn',
+      name: '皮',
+      piyin: 'pí',
+      description: 'leather',
+    },
+    {
+      id: '6cyVgWC4p',
+      name: '鞋',
+      piyin: 'xié',
+      description: 'shoe',
+    },
+    {
+      id: 'c4uMwh7uv',
+      name: '鞋子',
+      piyin: 'xié zi',
+      description: 'shoe',
+    },
+    {
+      id: 'tnPAX75wS',
+      name: '涼',
+      piyin: 'liáng',
+      description: 'to be cool',
+    },
+    {
+      id: 'qDXiSM5Uu',
+      name: '涼快',
+      piyin: 'liáng kuài',
+      description: 'to be pleasantly cool',
+    },
+    {
+      id: 'wlFoJa_8px',
+      name: '外套',
+      piyin: 'wài tào',
+      description: 'overcoat (M: 件 jiàn)',
+    },
+    {
+      id: 'nkuEduM2Xa',
+      name: '套',
+      piyin: 'tào',
+      description:
+        'measure word for suit, set of clothes, books, furniture etc',
+    },
+    {
+      id: 's3H73Tg-dA',
+      name: '總是',
+      piyin: 'zǒng shì',
+      description: 'always, without exception',
+    },
+    {
+      id: 'Efk5itPzQa',
+      name: '藍',
+      piyin: 'lán',
+      description: 'to be blue',
+    },
+    {
+      id: 'XOuG10KE6X',
+      name: '原來',
+      piyin: 'yuán lái',
+      description: 'originally, formely',
+    },
+    {
+      id: 'eqKbPJPK0O',
+      name: '紅',
+      piyin: 'hóng',
+      description: 'to be red',
+    },
+    {
+      id: 'GKtfDt5poe',
+      name: '年紀',
+      piyin: 'nián jí',
+      description: 'grade in school',
+    },
+    {
+      id: 'luRohBIr47',
+      name: '住校',
+      piyin: 'zhù xiào',
+      description: 'to live on campus',
+    },
+    {
+      id: 'JOeVy8xn2i',
+      name: '願意',
+      piyin: 'yuàn yì',
+      description: 'to be willing, want to, like to',
+    },
+    {
+      id: 'C2gfIIAYvL',
+      name: '故事',
+      piyin: 'gù shì',
+      description: 'story',
+    },
+    {
+      id: 'jfZPCjeUOY',
+      name: '忽然',
+      piyin: 'hū rán',
+      description: 'suddenly',
+    },
+    {
+      id: 'qHeRjsR4Ga',
+      name: '只好',
+      piyin: 'zhǐ hǎo',
+      description: 'have no choice but to',
+    },
+    {
+      id: 'cMmXoTczV2',
+      name: '部分',
+      piyin: 'bù fèn',
+      description: 'part, section',
+    },
+    {
+      id: 'uGJOPiiBon',
+      name: '大部分',
+      piyin: 'dà bù fèn',
+      description: 'the most part',
+    },
+    {
+      id: 'kJ3lcTZr9R',
+      name: '綠',
+      piyin: 'lǜ',
+      description: 'to be green',
+    },
+    {
+      id: 'IfxERVQbJ-',
+      name: '草地',
+      piyin: 'cǎo dì',
+      description: 'lawn (M: 片 piàn)',
+    },
+    {
+      id: 'SfpXPdi4mF',
+      name: '草',
+      piyin: 'cǎo',
+      description: 'grass （M： 棵)',
+    },
+    {
+      id: 'dM9Xip_E6j',
+      name: '顏色',
+      piyin: 'yán sè',
+      description: 'color',
+    },
+    {
+      id: '6XJ-vd_7E-',
+      name: '開花',
+      piyin: 'kāi huā',
+      description: 'to bloom, to blossom',
+    },
+    {
+      id: 'BNoAJ_n20q',
+      name: '開',
+      piyin: 'kāi',
+      description: 'to bloom, to blossom',
+    },
+    {
+      id: 'FNnzbx962K',
+      name: '花',
+      piyin: 'huā',
+      description: 'flower (M: 朵 duǒ)',
+    },
+    {
+      id: 'EKg2fXhTqd',
+      name: '黑板',
+      piyin: 'hēi bǎn',
+      description: 'blackboard (M: 塊)',
+    },
+    {
+      id: 'qAgtdHMi-X',
+      name: '黑',
+      piyin: 'hēi',
+      description: 'to be black',
+    },
+    {
+      id: 'BdP1MCkTW-',
+      name: '戴',
+      piyin: 'dài',
+      description: 'to wear (hat, watch, jewelry etc)',
+    },
+  ],
+}
+
+export default B2L8
