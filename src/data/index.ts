@@ -26,6 +26,7 @@ import B2L8 from './B2L8'
 import B2L9 from './B2L9'
 import B2L10 from './B2L10'
 import B2L11 from './B2L11'
+import B2L12 from './B2L12'
 
 // B3
 import B3L3 from './B3L3'
@@ -72,6 +73,7 @@ export const groups: { [key: string]: Group } = {
       B2L9,
       B2L10,
       B2L11,
+      B2L12,
     ],
   },
   '3': {
@@ -110,6 +112,7 @@ const wordLists: { [key: string]: WordList } = {
   B2L9,
   B2L10,
   B2L11,
+  B2L12,
   B3L3,
   B3L4,
   B3L5,
