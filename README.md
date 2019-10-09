@@ -12,7 +12,7 @@ The icons were generated using https://favicon.io/favicon-generator/
 
 - [ ] Add remaining lessons from book 3
 - [x] Add lessons from book 1
-- [ ] Add lessons from book 2
+- [x] Add lessons from book 2
 - [x] Proper service worker update
 - [x] View a list of all characters in a lesson
 - [ ] Toggle which characters are used in a practice session
