@@ -35,6 +35,7 @@ import B3L4 from './B3L4'
 import B3L5 from './B3L5'
 import B3L6 from './B3L6'
 import B3L7 from './B3L7'
+import B3L8 from './B3L8'
 import B3L10 from './B3L10'
 
 // ETC
@@ -81,7 +82,7 @@ export const groups: { [key: string]: Group } = {
   '3': {
     id: '3',
     name: 'Book 3',
-    wordLists: [B3L3, B3L4, B3L5, B3L6, B3L7, B3L10],
+    wordLists: [B3L3, B3L4, B3L5, B3L6, B3L7, B3L8, B3L10],
   },
   etc: {
     id: 'etc',
@@ -121,6 +122,7 @@ const wordLists: { [key: string]: WordList } = {
   B3L5,
   B3L6,
   B3L7,
+  B3L8,
   B3L10,
   chengyu,
 }
