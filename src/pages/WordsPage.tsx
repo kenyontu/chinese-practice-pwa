@@ -6,6 +6,7 @@ import { getWordList } from '../data'
 import styles from './WordsPage.module.css'
 import Header from '../components/Header'
 import HeaderButton from '../components/HeaderButton'
+import SpeechButton from '../components/SpeechButton'
 
 type Props = {} & RouteComponentProps<{ lesson_id: string }>
 
@@ -38,11 +39,14 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
 
       {words.map(word => (
         <div key={word.id} className={styles.word}>
-          <p className={styles.name}>
-            {word.name}
-            <span>{word.piyin}</span>
-          </p>
-          <p className={styles.description}>{word.description}</p>
+          <div>
+            <p className={styles.name}>
+              {word.name}
+              <span>{word.piyin}</span>
+            </p>
+            <p className={styles.description}>{word.description}</p>
+          </div>
+          <SpeechButton text={word.name} />
         </div>
       ))}
     </div>

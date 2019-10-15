@@ -1,43 +1,31 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 
 const SpeechStateContext = React.createContext<{
   isAvailable: boolean
-  isSpeaking: boolean
 }>({
   isAvailable: true,
-  isSpeaking: false,
 })
 
 const SpeechUpdaterContext = React.createContext<{
-  speak: (text: string) => void
+  speak: (text: string) => Promise<void>
 }>({
-  speak: () => {},
+  speak: () => Promise.resolve(),
 })
 
 export const SpeechProvider: React.FC = ({ children }) => {
-  const [isSpeaking, setIsSpeaking] = useState(false)
-
-  const speak = (text: string) => {
-    if (isSpeaking) {
-      return
-    }
-
-    setIsSpeaking(true)
-
-    // Firefox requires a new instance of utterance for other texts
-    const utterance = new SpeechSynthesisUtterance()
-    utterance.text = text
-    utterance.lang = 'zh-CN'
-    utterance.onend = () => {
-      setIsSpeaking(false)
-    }
-    window.speechSynthesis.speak(utterance)
-  }
+  const speak = (text: string) =>
+    new Promise<void>(resolve => {
+      // Firefox requires a new instance of utterance for other texts
+      const utterance = new SpeechSynthesisUtterance()
+      utterance.text = text
+      utterance.lang = 'zh-TW'
+      utterance.onend = () => resolve()
+      window.speechSynthesis.speak(utterance)
+    })
 
   // Provider values
   const stateValues = {
     isAvailable: Boolean(window.speechSynthesis),
-    isSpeaking,
   }
   const updaterValues = {
     speak,

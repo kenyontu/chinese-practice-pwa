@@ -7,11 +7,18 @@
 }
 
 .word {
-  padding: 1rem 0.7rem;
+  padding: 1rem 0.4rem 1rem 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .word:not(:last-child) {
   border-bottom: 1px solid #ccc;
+}
+
+.word > div {
+  margin-right: 0.3rem;
 }
 
 .name {
