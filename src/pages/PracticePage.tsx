@@ -6,6 +6,7 @@ import { Word } from 'types'
 
 import styles from './PracticePage.module.css'
 import Header from '../components/Header'
+import SpeechButton from '../components/SpeechButton'
 import { getWordList } from '../data'
 import { shuffle } from '../utils'
 
@@ -58,6 +59,10 @@ const PracticePage: React.FC<Props> = ({ match }) => {
           <div className={styles.questionContainer}>
             <p className={styles.word}>{currentWord.name}</p>
             <p className={styles.description}>{currentWord.description}</p>
+            <SpeechButton
+              className={styles.speechBtn}
+              text={currentWord.name}
+            />
           </div>
           <div className={styles.answerContainer}>
             <div

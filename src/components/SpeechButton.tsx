@@ -7,15 +7,18 @@ import { useSpeechUpdater, useSpeechState } from '../context/speechContext'
 
 interface Props {
   text: string
+  className?: string
 }
 
-const SpeechButton: React.FC<Props> = ({ text }) => {
+const SpeechButton: React.FC<Props> = ({ text, className }) => {
   const [isSpeaking, setIsSpeaking] = useState(false)
 
   const { isAvailable } = useSpeechState()
   const { speak } = useSpeechUpdater()
 
   const handleClick = () => {
+    if (isSpeaking) return
+
     setIsSpeaking(true)
     speak(text).then(() => {
       setIsSpeaking(false)
@@ -27,7 +30,7 @@ const SpeechButton: React.FC<Props> = ({ text }) => {
       {isAvailable && (
         <button
           onClick={handleClick}
-          className={classNames(styles.button, {
+          className={classNames(styles.button, className, {
             [styles.speaking]: isSpeaking,
           })}
         >

@@ -18,7 +18,7 @@ export const SpeechProvider: React.FC = ({ children }) => {
       // Firefox requires a new instance of utterance for other texts
       const utterance = new SpeechSynthesisUtterance()
       utterance.text = text
-      utterance.lang = 'zh-TW'
+      utterance.lang = 'zh-CN'
       utterance.onend = () => resolve()
       window.speechSynthesis.speak(utterance)
     })
