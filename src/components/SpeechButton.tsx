@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 
 import styles from './SpeechButton.module.css'
-import { useSpeechUpdater, useSpeechState } from '../context/speechContext'
+import useSpeech from '../hooks/useSpeech'
 
 interface Props {
   text: string
@@ -11,18 +11,10 @@ interface Props {
 }
 
 const SpeechButton: React.FC<Props> = ({ text, className }) => {
-  const [isSpeaking, setIsSpeaking] = useState(false)
-
-  const { isAvailable } = useSpeechState()
-  const { speak } = useSpeechUpdater()
+  const { isAvailable, isSpeaking, speak } = useSpeech()
 
   const handleClick = () => {
-    if (isSpeaking) return
-
-    setIsSpeaking(true)
-    speak(text).then(() => {
-      setIsSpeaking(false)
-    })
+    speak(text)
   }
 
   return (
