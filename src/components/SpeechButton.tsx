@@ -8,9 +8,15 @@ import useSpeech from '../hooks/useSpeech'
 interface Props {
   text: string
   className?: string
+  iconClassName?: string
 }
 
-const SpeechButton: React.FC<Props> = ({ text, className, children }) => {
+const SpeechButton: React.FC<Props> = ({
+  text,
+  className,
+  iconClassName,
+  children,
+}) => {
   const { isAvailable, isSpeaking, speak } = useSpeech()
 
   const handleClick = () => {
@@ -27,7 +33,7 @@ const SpeechButton: React.FC<Props> = ({ text, className, children }) => {
           })}
         >
           {children}
-          <FontAwesomeIcon icon="volume-up" />
+          <FontAwesomeIcon icon="volume-up" className={iconClassName} />
         </button>
       )}
     </>
