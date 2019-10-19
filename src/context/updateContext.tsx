@@ -17,7 +17,6 @@ export const UpdateProvider: React.FC = ({ children }) => {
       const skipWaiting = event.detail.skipWaiting
       setUpdateApp(() => () => {
         skipWaiting()
-        window.location.reload(true)
       })
       setUpdateAvailable(true)
     }
@@ -31,6 +30,24 @@ export const UpdateProvider: React.FC = ({ children }) => {
       window.removeEventListener(
         'appUpdateReady',
         handleUpdateReady as EventListener
+      )
+    }
+  }, [])
+
+  useEffect(() => {
+    const onControllerChange = () => {
+      window.location.reload()
+    }
+
+    navigator.serviceWorker.addEventListener(
+      'controllerchange',
+      onControllerChange
+    )
+
+    return () => {
+      navigator.serviceWorker.removeEventListener(
+        'controllerchange',
+        onControllerChange
       )
     }
   }, [])
