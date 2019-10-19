@@ -61,6 +61,7 @@ const PracticePage: React.FC<Props> = ({ match }) => {
             <p className={styles.description}>{currentWord.description}</p>
             <SpeechButton
               className={styles.speechBtn}
+              iconClassName={styles.speechIcon}
               text={currentWord.name}
             />
           </div>
