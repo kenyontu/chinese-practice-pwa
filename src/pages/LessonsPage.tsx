@@ -8,7 +8,8 @@ import Header from '../components/Header'
 const LessonsPage: React.FC = () => {
   return (
     <div className={styles.container}>
-      <Header title="Lessons" hideOnScroll />
+      <Header title="Lessons 1" hideOnScroll />
+
       {Object.keys(groups).map(groupKey => {
         const wordLists = groups[groupKey].wordLists
 
