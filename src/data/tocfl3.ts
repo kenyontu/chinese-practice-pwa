@@ -349,7 +349,7 @@ const tocfl3: WordList = {
     },
     {
       id: 'JljTW0Ceot',
-      name: '窗',
+      name: '窗戶',
       piyin: 'chuānghu',
       description: 'variant of 窗[chuāng]',
     },
