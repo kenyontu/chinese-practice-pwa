@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 
 import { groups } from '../data'
 import styles from './LessonsPage.module.css'
+import Header from '../components/Header'
 
 const LessonsPage: React.FC = () => {
   return (
     <div className={styles.container}>
+      <Header title="Lessons" hideOnScroll />
       {Object.keys(groups).map(groupKey => {
         const wordLists = groups[groupKey].wordLists
 

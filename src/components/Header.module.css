@@ -4,7 +4,6 @@
   justify-content: space-between;
   padding: 0 0.8rem;
   height: var(--header-height);
-  border-bottom: 1px solid lightgray;
   position: fixed;
   top: 0;
   right: 0;
