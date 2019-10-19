@@ -41,6 +41,15 @@ import B3L8 from './B3L8'
 import B3L9 from './B3L9'
 import B3L10 from './B3L10'
 
+// TOCFL
+import tocfl1 from './tocfl1'
+import tocfl2 from './tocfl2'
+import tocfl3 from './tocfl3'
+import tocfl4 from './tocfl4'
+import tocfl5 from './tocfl5'
+import tocfl6 from './tocfl6'
+import tocfl7 from './tocfl7'
+
 // ETC
 import chengyu from './chengyu'
 
@@ -87,6 +96,11 @@ export const groups: { [key: string]: Group } = {
     name: 'Book 3',
     wordLists: [B3L1, B3L2, B3L3, B3L4, B3L5, B3L6, B3L7, B3L8, B3L9, B3L10],
   },
+  tocfl: {
+    id: 'tocfl',
+    name: 'TOCFL',
+    wordLists: [tocfl1, tocfl2, tocfl3, tocfl4, tocfl5, tocfl6, tocfl7],
+  },
   etc: {
     id: 'etc',
     name: 'Etc',
@@ -130,6 +144,13 @@ const wordLists: { [key: string]: WordList } = {
   B3L8,
   B3L9,
   B3L10,
+  tocfl1,
+  tocfl2,
+  tocfl3,
+  tocfl4,
+  tocfl5,
+  tocfl6,
+  tocfl7,
   chengyu,
 }
 

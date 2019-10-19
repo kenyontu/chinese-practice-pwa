@@ -11,16 +11,13 @@ import 'normalize.css'
 import './index.css'
 import * as serviceWorker from './serviceWorker'
 import App from './app/App'
-import { SpeechProvider } from './context/speechContext'
 import { UpdateProvider } from './context/updateContext'
 
 library.add(faDumbbell, faArrowLeft, faArrowAltCircleRight, faVolumeUp)
 
 ReactDOM.render(
   <UpdateProvider>
-    <SpeechProvider>
-      <App />
-    </SpeechProvider>
+    <App />
   </UpdateProvider>,
   document.getElementById('root')
 )
