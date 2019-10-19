@@ -10,7 +10,7 @@ interface Props {
   className?: string
 }
 
-const SpeechButton: React.FC<Props> = ({ text, className }) => {
+const SpeechButton: React.FC<Props> = ({ text, className, children }) => {
   const { isAvailable, isSpeaking, speak } = useSpeech()
 
   const handleClick = () => {
@@ -26,6 +26,7 @@ const SpeechButton: React.FC<Props> = ({ text, className }) => {
             [styles.speaking]: isSpeaking,
           })}
         >
+          {children}
           <FontAwesomeIcon icon="volume-up" />
         </button>
       )}

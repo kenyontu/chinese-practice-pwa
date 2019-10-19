@@ -8,9 +8,6 @@
 
 .word {
   padding: 1rem 0.4rem 1rem 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .word:not(:last-child) {
@@ -21,11 +18,18 @@
   margin-right: 0.3rem;
 }
 
-.name {
-  font-size: 2rem;
+.nameContainer {
+  display: flex;
+  align-items: center;
 }
 
-.name span {
+.name {
+  font-size: 2rem;
+  color: #333;
+  margin-right: 0.3rem;
+}
+
+.piyin {
   font-size: 1.2rem;
   color: #999;
   margin-left: 0.3rem;

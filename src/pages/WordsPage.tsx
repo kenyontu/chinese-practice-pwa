@@ -39,14 +39,14 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
 
       {words.map(word => (
         <div key={word.id} className={styles.word}>
-          <div>
-            <p className={styles.name}>
-              {word.name}
-              <span>{word.piyin}</span>
-            </p>
-            <p className={styles.description}>{word.description}</p>
+          <div className={styles.nameContainer}>
+            <SpeechButton text={word.name}>
+              <p className={styles.name}>{word.name}</p>
+            </SpeechButton>
+            <span className={styles.piyin}>{word.piyin}</span>
           </div>
-          <SpeechButton text={word.name} />
+
+          <p className={styles.description}>{word.description}</p>
         </div>
       ))}
     </div>
