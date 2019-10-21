@@ -1,17 +1,24 @@
 .container {
+  /* 
+    Because the header is not fixed correctly at the top in some 
+    cases in Safari, this extra height was added to make it a 
+    little taller
+  */
+  --extra-top-height: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0.8rem;
-  height: var(--header-height);
+  padding: var(--extra-top-height) 0.8rem 0 0.8rem;
+  height: calc(var(--header-height) + var(--extra-top-height));
   position: fixed;
-  top: 0;
+  top: calc(var(--extra-top-height) * -1);
   right: 0;
   left: 0;
   z-index: 10;
   background-color: var(--header-background);
   color: var(--accent-color);
   transition: transform 0.2s ease-out;
+  box-sizing: border-box;
 }
 
 .title {

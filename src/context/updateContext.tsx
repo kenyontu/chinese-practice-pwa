@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { AppUpdateReadyEvent } from '../index'
+
 const UpdateContext = React.createContext({
   updateAvailable: false,
   updateApp: () => {},
