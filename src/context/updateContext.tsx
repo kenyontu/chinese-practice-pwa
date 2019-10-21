@@ -40,16 +40,20 @@ export const UpdateProvider: React.FC = ({ children }) => {
       window.location.reload()
     }
 
-    navigator.serviceWorker.addEventListener(
-      'controllerchange',
-      onControllerChange
-    )
-
-    return () => {
-      navigator.serviceWorker.removeEventListener(
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.addEventListener(
         'controllerchange',
         onControllerChange
       )
+    }
+
+    return () => {
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.removeEventListener(
+          'controllerchange',
+          onControllerChange
+        )
+      }
     }
   }, [])
 

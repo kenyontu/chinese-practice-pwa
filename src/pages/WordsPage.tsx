@@ -7,6 +7,7 @@ import styles from './WordsPage.module.css'
 import Header from '../components/Header'
 import HeaderButton from '../components/HeaderButton'
 import SpeechButton from '../components/SpeechButton'
+import StartPracticeDialog from '../components/StartPracticeDialog'
 
 type Props = {} & RouteComponentProps<{ lesson_id: string }>
 
@@ -14,6 +15,7 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
   const lessonId = match.params.lesson_id
   const [words, setWords] = useState<Word[]>([])
   const [title, setTitle] = useState<string>('')
+  const [isDialogOpen, setDialogOpen] = useState(false)
 
   useEffect(() => {
     const lesson = getWordList(match.params.lesson_id)
@@ -25,7 +27,15 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
   }, [match.params.lesson_id])
 
   const handlePracticeClick = () => {
-    history.push(`/lessons/${lessonId}/practice`)
+    setDialogOpen(true)
+  }
+
+  const onCloseDialog = () => {
+    setDialogOpen(false)
+  }
+
+  const onPracticeOptionClick = (start: number, end: number) => {
+    history.push(`/lessons/${lessonId}/practice?start=${start}&end=${end}`)
   }
 
   return (
@@ -35,6 +45,14 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
         right={<HeaderButton onClick={handlePracticeClick} icon="dumbbell" />}
         hasNavigateBack
         hideOnScroll
+      />
+
+      <StartPracticeDialog
+        isOpen={isDialogOpen}
+        wordCount={words.length}
+        practiceOptionSelected={onPracticeOptionClick}
+        onClose={onCloseDialog}
+        closeOnBackdropClick
       />
 
       {words.map(word => (

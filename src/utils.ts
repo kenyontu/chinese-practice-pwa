@@ -10,3 +10,22 @@ export const shuffle = <T = {}>(source: T[]): T[] => {
 
   return array
 }
+
+export const getPracticeOptions = (wordCount: number) => {
+  const practiceOptions = [[1, wordCount]]
+  let a = 1
+
+  while (wordCount > 0) {
+    if (wordCount >= 13) {
+      practiceOptions.push([a, a + 9])
+      a += 10
+      wordCount -= 10
+      continue
+    }
+
+    practiceOptions.push([a, a + wordCount - 1])
+    break
+  }
+
+  return practiceOptions
+}

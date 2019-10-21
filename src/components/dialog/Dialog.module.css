@@ -1,25 +1,41 @@
-.container {
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  box-sizing: border-box;
-  display: flex;
-  padding: 3rem;
-  transition: opacity 250ms ease-in, transform 350ms ease-in;
-  background-color: rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 20;
-  transform: translateY(-100%);
   opacity: 0;
-}
-
-.dialog {
-  flex: 1;
-  background-color: white;
+  padding: 2.7rem;
+  transform: translateY(-100%);
+  transition: opacity 100ms, transform 0ms;
+  overscroll-behavior: contain;
 }
 
 .open {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0%);
+}
+
+.dialog {
+  background-color: white;
+  border-radius: 0.3rem;
+  transform: translateY(100%);
+}
+
+.open .dialog {
+  animation: showDialog forwards;
+  animation-duration: 100ms;
+}
+
+@keyframes showDialog {
+  0% {
+    transform: translateY(20%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
 }
