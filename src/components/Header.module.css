@@ -1,9 +1,4 @@
 .container {
-  /* 
-    Because the header is not fixed correctly at the top in some 
-    cases in Safari, this extra height was added to make it a 
-    little taller
-  */
   display: flex;
   align-items: center;
   justify-content: space-between;
