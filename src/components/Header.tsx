@@ -32,7 +32,11 @@ const Header: React.FC<Props> = ({
       })}
     >
       {hasNavigateBack && (
-        <HeaderButton onClick={handleNavBackClick} icon="arrow-left" />
+        <HeaderButton
+          data-testid="nav-back-btn"
+          onClick={handleNavBackClick}
+          icon="arrow-left"
+        />
       )}
 
       <h1 className={styles.title}>{title}</h1>

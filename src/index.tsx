@@ -1,19 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-  faDumbbell,
-  faArrowLeft,
-  faArrowAltCircleRight,
-  faVolumeUp,
-} from '@fortawesome/free-solid-svg-icons'
 import 'normalize.css'
 import './index.css'
 import * as serviceWorker from './serviceWorker'
-import App from './app/App'
 import { UpdateProvider } from './context/updateContext'
-
-library.add(faDumbbell, faArrowLeft, faArrowAltCircleRight, faVolumeUp)
+import './setup'
+import App from './app/App'
 
 ReactDOM.render(
   <UpdateProvider>

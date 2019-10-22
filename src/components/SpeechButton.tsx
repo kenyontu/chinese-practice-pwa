@@ -16,6 +16,7 @@ const SpeechButton: React.FC<Props> = ({
   className,
   iconClassName,
   children,
+  ...props
 }) => {
   const { isAvailable, isSpeaking, speak } = useSpeech()
 
@@ -27,6 +28,7 @@ const SpeechButton: React.FC<Props> = ({
     <>
       {isAvailable && (
         <button
+          {...props}
           onClick={handleClick}
           className={classNames(styles.button, className, {
             [styles.speaking]: isSpeaking,

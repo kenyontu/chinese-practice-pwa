@@ -11,9 +11,9 @@ interface Props {
     | undefined
 }
 
-const HeaderButton: React.FC<Props> = ({ icon, onClick }) => {
+const HeaderButton: React.FC<Props> = ({ icon, onClick, ...props }) => {
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button {...props} className={styles.button} onClick={onClick}>
       <FontAwesomeIcon icon={icon} />
     </button>
   )
