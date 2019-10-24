@@ -66,7 +66,7 @@ const B3L11: WordList = {
     },
     {
       id: 'iMvRFRWQb',
-      name: '注意',
+      name: '主意',
       piyin: 'zhǔ yì',
       description: 'doctrine, "-ism"',
     },
@@ -296,7 +296,7 @@ const B3L11: WordList = {
     {
       id: 'h8xBJOMRvU',
       name: '人類',
-      piyin: 'rěn lèi',
+      piyin: 'rén lèi',
       description: 'humankind, the human race',
     },
     {
