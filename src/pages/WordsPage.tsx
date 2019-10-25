@@ -50,7 +50,7 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
       <StartPracticeDialog
         isOpen={isDialogOpen}
         wordCount={words.length}
-        practiceOptionSelected={onPracticeOptionClick}
+        onPracticeOptionSelected={onPracticeOptionClick}
         onClose={onCloseDialog}
         closeOnBackdropClick
       />

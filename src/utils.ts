@@ -15,6 +15,10 @@ export const getPracticeOptions = (wordCount: number) => {
   const practiceOptions = [[1, wordCount]]
   let a = 1
 
+  if (wordCount <= 13) {
+    return practiceOptions
+  }
+
   while (wordCount > 0) {
     if (wordCount >= 13) {
       practiceOptions.push([a, a + 9])

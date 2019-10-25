@@ -2,6 +2,7 @@ html {
   --header-height: 3rem;
   --header-background: #111;
   --accent-color: #00a8e8;
+  --list-separator-color: #eee;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

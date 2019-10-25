@@ -5,9 +5,9 @@ import { Dialog } from './dialog'
 import { getPracticeOptions } from '../utils'
 
 interface Props {
-  isOpen: boolean
   wordCount: number
-  practiceOptionSelected: (start: number, end: number) => void
+  onPracticeOptionSelected: (start: number, end: number) => void
+  isOpen: boolean
   onClose: () => void
   closeOnBackdropClick?: boolean
 }
@@ -15,13 +15,20 @@ interface Props {
 const StartPracticeDialog: React.FC<Props> = ({
   isOpen,
   wordCount,
-  practiceOptionSelected,
+  onPracticeOptionSelected,
   onClose,
-  closeOnBackdropClick = false,
+  closeOnBackdropClick = true,
 }) => {
   const practiceOptions = useMemo(() => {
     return getPracticeOptions(wordCount)
   }, [wordCount])
+
+  const handleOnCloseClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.stopPropagation()
+    onClose()
+  }
 
   return (
     <Dialog
@@ -32,15 +39,18 @@ const StartPracticeDialog: React.FC<Props> = ({
       {practiceOptions.map(([start, end]) => (
         <button
           key={`${start}${end}`}
-          onClick={() => practiceOptionSelected(start, end)}
+          data-testid="practice-option"
+          onClick={() => onPracticeOptionSelected(start, end)}
           className={styles.practiceOptionBtn}
         >
           <div>
-            <span>{start}</span> to <span>{end}</span>
+            <span className={styles.wordNumber}>{start}</span>
+            <span className={styles.to}>to</span>
+            <span className={styles.wordNumber}>{end}</span>
           </div>
         </button>
       ))}
-      <button className={styles.closeBtn} onClick={onClose}>
+      <button className={styles.closeBtn} onClick={handleOnCloseClick}>
         Close
       </button>
     </Dialog>
