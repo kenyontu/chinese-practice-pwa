@@ -269,6 +269,12 @@ const B3L11: WordList = {
       description: 'to be economical, thrifty; economy, financial status',
     },
     {
+      id: 'VsCpTObb',
+      name: '來往',
+      piyin: 'lái wǎng',
+      description: 'to have dealing with, to contact, to correspond with',
+    },
+    {
       id: 'llPCjZIgsA',
       name: '放棄',
       piyin: 'fàng qì',
@@ -292,6 +298,12 @@ const B3L11: WordList = {
       name: '證書',
       piyin: 'zhèng shū',
       description: 'certificate (M: 張 zhāng)',
+    },
+    {
+      id: '2jFQ6XaXs',
+      name: '和平',
+      piyin: 'hé píng',
+      description: 'to be peaceful',
     },
     {
       id: 'h8xBJOMRvU',
