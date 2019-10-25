@@ -41,6 +41,7 @@ import B3L8 from './B3L8'
 import B3L9 from './B3L9'
 import B3L10 from './B3L10'
 import B3L11 from './B3L11'
+import B3L12 from './B3L12'
 
 // TOCFL
 import tocfl1 from './tocfl1'
@@ -107,6 +108,7 @@ export const groups: { [key: string]: Group } = {
       B3L9,
       B3L10,
       B3L11,
+      B3L12,
     ],
   },
   tocfl: {
@@ -158,6 +160,7 @@ const wordLists: { [key: string]: WordList } = {
   B3L9,
   B3L10,
   B3L11,
+  B3L12,
   tocfl1,
   tocfl2,
   tocfl3,
