@@ -1,3 +1,4 @@
 import Dialog from './Dialog'
+import DialogHeader from './DialogHeader'
 
-export { Dialog }
+export { Dialog, DialogHeader }

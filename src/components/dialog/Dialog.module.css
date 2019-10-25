@@ -7,7 +7,7 @@
   overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 20;
-  padding: 2.7rem;
+  padding: 0.8rem 2.5rem;
   transform: translateX(100%);
   transition: opacity 100ms;
   opacity: 0;
@@ -20,6 +20,20 @@
 }
 
 .dialog {
+  max-width: 370px;
+  margin: 0 auto;
   background-color: white;
   border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #eee;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.8rem 0;
+  text-align: center;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }

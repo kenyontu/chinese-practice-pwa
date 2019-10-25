@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 
 import styles from './StartPracticeDialog.module.css'
-import { Dialog } from './dialog'
+import { Dialog, DialogHeader } from './dialog'
 import { getPracticeOptions } from '../utils'
 
 interface Props {
@@ -35,7 +35,8 @@ const StartPracticeDialog: React.FC<Props> = ({
       isOpen={isOpen}
       onBackdropClick={closeOnBackdropClick ? onClose : () => {}}
     >
-      <h2 className={styles.header}>Practice options</h2>
+      <DialogHeader title="Practice options" />
+
       {practiceOptions.map(([start, end]) => (
         <button
           key={`${start}${end}`}

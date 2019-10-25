@@ -18,6 +18,7 @@ const Dialog: React.FC<Props> = ({ children, isOpen, onBackdropClick }) => {
 
   return (
     <div
+      data-testid="dialog-backdrop"
       className={classNames(styles.backdrop, { [styles.open]: isOpen })}
       onClick={onBackdropClick}
     >
