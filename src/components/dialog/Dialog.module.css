@@ -7,7 +7,7 @@
   overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 20;
-  padding: 0.8rem 2.5rem;
+  padding: 3.5rem 2.5rem 0.8rem 2.5rem;
   transform: translateX(100%);
   transition: opacity 100ms;
   opacity: 0;
@@ -36,4 +36,17 @@
   text-align: center;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+}
+
+.closeButton {
+  background-color: #eee;
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e53935;
+  text-align: center;
+  width: 100%;
+  border: none;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
