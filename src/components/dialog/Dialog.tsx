@@ -16,13 +16,23 @@ const Dialog: React.FC<Props> = ({ children, isOpen, onBackdropClick }) => {
     transform: isOpen ? 'translateY(0)' : 'translateY(50%)',
   })
 
+  const onDialogClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    event.stopPropagation()
+  }
+
   return (
     <div
       data-testid="dialog-backdrop"
       className={classNames(styles.backdrop, { [styles.open]: isOpen })}
       onClick={onBackdropClick}
     >
-      <animated.div style={dialogSpring} className={styles.dialog}>
+      <animated.div
+        style={dialogSpring}
+        className={styles.dialog}
+        onClick={onDialogClick}
+      >
         {isOpen ? children : null}
       </animated.div>
     </div>
