@@ -12,7 +12,7 @@ https://github.com/tomcumming/tocfl-word-list/ was used to generate the TOCFL wo
 
 ## To-do
 
-- [ ] Add remaining lessons from book 3
+- [x] Add remaining lessons from book 3
 - [x] Add lessons from book 1
 - [x] Add lessons from book 2
 - [x] Add TOCFL words
