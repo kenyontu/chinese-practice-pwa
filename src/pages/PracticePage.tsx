@@ -3,11 +3,13 @@ import { RouteComponentProps } from 'react-router-dom'
 import classNames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import queryString from 'query-string'
-import { Word } from 'types'
+import { Word, PracticeSettings } from 'types'
 
 import styles from './PracticePage.module.css'
 import Header from '../components/Header'
+import HeaderButton from '../components/HeaderButton'
 import SpeechButton from '../components/SpeechButton'
+import PracticeSettingsDialog from '../components/PracticeSettingsDialog'
 import { getWordList } from '../data'
 import { shuffle } from '../utils'
 
@@ -25,11 +27,21 @@ const filterWords = (words: Word[], query: string) => {
 
 type Props = {} & RouteComponentProps<{ lesson_id: string }>
 
+const defaultSettings: PracticeSettings = {
+  hidden: {
+    characters: false,
+    piyin: true,
+    description: false,
+  },
+}
+
 const PracticePage: React.FC<Props> = ({ match, location }) => {
   const lessonId = match.params.lesson_id
   const [words, setWords] = useState<Word[]>([])
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [revealed, setRevealed] = useState(false)
+  const [isSettingsDialogOpen, setIsSettingsDialogOpen] = useState(false)
+  const [settings, setSettings] = useState<PracticeSettings>(defaultSettings)
 
   useEffect(() => {
     const wordList = getWordList(lessonId)
@@ -59,19 +71,41 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
     }
   }
 
+  const onSettingsChange = (newSettings: PracticeSettings) => {
+    setSettings(newSettings)
+  }
+
+  const handleSettingsClick = () => {
+    setIsSettingsDialogOpen(true)
+  }
+
   const currentWord = words[currentWordIndex]
 
   return (
     <div className={styles.container}>
+      <PracticeSettingsDialog
+        isOpen={isSettingsDialogOpen}
+        onClose={() => setIsSettingsDialogOpen(false)}
+        settings={settings}
+        onSettingsChange={onSettingsChange}
+      />
       <Header
         title={`${currentWordIndex + 1}/${words.length}`}
         hasNavigateBack
+        right={<HeaderButton icon="cog" onClick={handleSettingsClick} />}
       />
       {words.length > 0 ? (
         <>
           <div className={styles.questionContainer}>
-            <p className={styles.word}>{currentWord.name}</p>
-            <p className={styles.description}>{currentWord.description}</p>
+            {!settings.hidden.characters && (
+              <p className={styles.word}>{currentWord.name}</p>
+            )}
+            {!settings.hidden.piyin && (
+              <p className={styles.piyin}>{currentWord.piyin}</p>
+            )}
+            {!settings.hidden.description && (
+              <p className={styles.description}>{currentWord.description}</p>
+            )}
             <SpeechButton
               className={styles.speechBtn}
               iconClassName={styles.speechIcon}
@@ -88,7 +122,15 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
               Reveal
             </div>
             <div className={styles.answerContent}>
-              <p className={styles.answer}>{currentWord.piyin}</p>
+              {settings.hidden.characters && (
+                <p className={styles.word}>{currentWord.name}</p>
+              )}
+              {settings.hidden.piyin && (
+                <p className={styles.piyin}>{currentWord.piyin}</p>
+              )}
+              {settings.hidden.description && (
+                <p className={styles.description}>{currentWord.description}</p>
+              )}
             </div>
 
             <button className={styles.nextBtn} onClick={handleNextClick}>

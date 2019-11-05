@@ -17,4 +17,15 @@ declare module 'types' {
     name: string
     wordLists: WordList[]
   }
+
+  export type PracticeSettingHiddenKeys = 'characters' | 'piyin' | 'description'
+
+  export interface PracticeSettings {
+    hidden: {
+      [key: string]: boolean
+      characters: boolean
+      piyin: boolean
+      description: boolean
+    }
+  }
 }
