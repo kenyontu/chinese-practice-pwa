@@ -10,6 +10,7 @@ import Header from '../components/Header'
 import HeaderButton from '../components/HeaderButton'
 import SpeechButton from '../components/SpeechButton'
 import PracticeSettingsDialog from '../components/PracticeSettingsDialog'
+import useLocalStorage from '../hooks/useLocalStorage'
 import { getWordList } from '../data'
 import { shuffle } from '../utils'
 
@@ -41,7 +42,10 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [revealed, setRevealed] = useState(false)
   const [isSettingsDialogOpen, setIsSettingsDialogOpen] = useState(false)
-  const [settings, setSettings] = useState<PracticeSettings>(defaultSettings)
+  const [settings, setSettings] = useLocalStorage<PracticeSettings>(
+    'practice-settings',
+    defaultSettings
+  )
 
   useEffect(() => {
     const wordList = getWordList(lessonId)
