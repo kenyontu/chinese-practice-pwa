@@ -72,6 +72,50 @@ const chengyu: WordList = {
       piyin: 'xióng wěi tǐng bá',
       description: 'majestic tall and straight',
     },
+    {
+      id: 'BDytfrfe',
+      name: '一字千金',
+      piyin: 'yí zì qiān jīn',
+      description:
+        'every word in a writing is worth its weight in gold (it is very well written)',
+    },
+    {
+      id: 'XVVYDEHxF',
+      name: '字字珠璣',
+      piyin: 'zì zì zhū jī',
+      description: 'each word a gem (in a writing)',
+    },
+    {
+      id: 'SDdI7QolR',
+      name: '驢鳴犬吠',
+      piyin: 'lǘ míng quǎn fèi',
+      description: 'a badly written text, article etc.',
+    },
+    {
+      id: 'Ag08b6yI',
+      name: '畫龍點睛',
+      piyin: 'huà lóng diǎn jīng',
+      description: 'make the finishing point, the finishing touch',
+    },
+    {
+      id: '2n996mYK7',
+      name: '栩栩如生',
+      piyin: 'xǔ xǔ rú shēng',
+      description: 'vivid, almost lifelike in appearance',
+    },
+    {
+      id: '_lo-vl4UM',
+      name: '錦上添花',
+      piyin: 'jǐn shàng tiān huā',
+      description: 'the icing on the cake, make something even better',
+    },
+    {
+      id: '4Nl6-eZp_',
+      name: '畫蛇添足',
+      piyin: 'huà shé tiān zú',
+      description:
+        'ruin something by adding something superfluous or unnecessary',
+    },
   ],
 }
 

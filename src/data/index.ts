@@ -55,6 +55,7 @@ import tocfl7 from './tocfl7'
 
 // ETC
 import chengyu from './chengyu'
+import extra from './extra'
 
 export const groups: { [key: string]: Group } = {
   '1': {
@@ -121,7 +122,7 @@ export const groups: { [key: string]: Group } = {
   etc: {
     id: 'etc',
     name: 'Etc',
-    wordLists: [chengyu],
+    wordLists: [chengyu, extra],
   },
 }
 
@@ -172,6 +173,7 @@ const wordLists: { [key: string]: WordList } = {
   tocfl6,
   tocfl7,
   chengyu,
+  extra,
 }
 
 export const getWordList = (wordListId: string): WordList | null =>
