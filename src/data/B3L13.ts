@@ -292,8 +292,8 @@ const B3L13: WordList = {
     },
     {
       id: 'mV9Eomz0kn',
-      name: '商人 (生意人))',
-      piyin: 'shāng rén (shēng yì rén)',
+      name: '商人',
+      piyin: 'shāng rén',
       description: 'businessman, merchant, trader',
     },
     {
@@ -480,7 +480,7 @@ const B3L13: WordList = {
     {
       id: '2CdkNii6zh',
       name: '感恩節',
-      piyin: 'gǎ nēn jié',
+      piyin: 'gǎn ēn jié',
       description: 'Thanksgiving Day',
     },
     {
