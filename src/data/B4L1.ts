@@ -448,8 +448,8 @@ const B4L1: WordList = {
     },
     {
       id: '0hPywXPYtC',
-      name: '舞',
-      piyin: 'dào',
+      name: '舞稻團',
+      piyin: 'wǔ dào tuán',
       description: 'dance troupe, dance company',
     },
     {
