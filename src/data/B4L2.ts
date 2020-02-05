@@ -295,7 +295,7 @@ const B4L2: WordList = {
     {
       id: 'vIe70nM_tX',
       name: '各種各樣',
-      piyin: 'gè zhǒng gē yàng',
+      piyin: 'gè zhǒng gè yàng',
       description: 'all kinds, various and sundry, a great variety',
     },
     {

@@ -48,6 +48,7 @@ import B3L14 from './B3L14'
 // B4
 import B4L1 from './B4L1'
 import B4L2 from './B4L2'
+import B4L3 from './B4L3'
 
 // TOCFL
 import tocfl1 from './tocfl1'
@@ -123,7 +124,7 @@ export const groups: { [key: string]: Group } = {
   '4': {
     id: '4',
     name: 'Book 4',
-    wordLists: [B4L1, B4L2],
+    wordLists: [B4L1, B4L2, B4L3],
   },
   tocfl: {
     id: 'tocfl',
@@ -179,6 +180,7 @@ const wordLists: { [key: string]: WordList } = {
   B3L14,
   B4L1,
   B4L2,
+  B4L3,
   tocfl1,
   tocfl2,
   tocfl3,
