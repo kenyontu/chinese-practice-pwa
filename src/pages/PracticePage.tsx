@@ -2,31 +2,32 @@ import React, { useState, useEffect } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import classNames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import queryString from 'query-string'
-import { Word, PracticeSettings } from 'types'
+import { PracticeSettings } from 'types'
 
 import styles from './PracticePage.module.css'
-import Header from '../components/Header'
-import HeaderButton from '../components/HeaderButton'
+import Header from '../components/header/Header'
+import HeaderButton from '../components/header/HeaderButton'
 import SpeechButton from '../components/SpeechButton'
 import PracticeSettingsDialog from '../components/PracticeSettingsDialog'
 import useLocalStorage from '../hooks/useLocalStorage'
-import { getWordList } from '../data'
 import { shuffle } from '../utils'
+import useFavoriteWords from '../hooks/useFavoriteWords'
+import { useGetData } from '../context/dataContext'
 
-const filterWords = (words: Word[], query: string) => {
-  const { start, end } = queryString.parse(query, {
-    parseNumbers: true,
-  })
-
-  if (typeof start === 'number' && typeof end === 'number' && start <= end) {
-    return words.slice(start - 1, end)
+const filterWords = (
+  wordIds: string[],
+  query: string,
+  favorites: { [key: string]: boolean }
+) => {
+  const params = new URLSearchParams(query)
+  if (params.get('mode') === 'fav') {
+    return wordIds.filter(w => favorites[w])
   }
 
-  return words
+  return wordIds
 }
 
-type Props = {} & RouteComponentProps<{ lesson_id: string }>
+type Props = {} & RouteComponentProps<{ category_id: string }>
 
 const defaultSettings: PracticeSettings = {
   hidden: {
@@ -37,37 +38,38 @@ const defaultSettings: PracticeSettings = {
 }
 
 const PracticePage: React.FC<Props> = ({ match, location }) => {
-  const lessonId = match.params.lesson_id
-  const [words, setWords] = useState<Word[]>([])
+  const categoryId = match.params.category_id
+  const data = useGetData(data => data.wordsByCategory[categoryId])
+  const [words, setWords] = useState<string[]>([])
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const word = useGetData(data => data.wordsById[words[currentWordIndex]])
   const [revealed, setRevealed] = useState(false)
   const [isSettingsDialogOpen, setIsSettingsDialogOpen] = useState(false)
   const [settings, setSettings] = useLocalStorage<PracticeSettings>(
     'practice-settings',
     defaultSettings
   )
+  const { favorites } = useFavoriteWords(categoryId)
 
   useEffect(() => {
-    const wordList = getWordList(lessonId)
-    if (wordList !== null) {
-      setWords(shuffle(filterWords(wordList.words, location.search)))
+    if (data) {
+      setWords(shuffle(filterWords(data, location.search, favorites)))
     }
-  }, [lessonId, location.search])
+  }, [categoryId, location.search, data, favorites])
 
-  const handleAnswerClick = () => {
-    setRevealed(true)
+  const handleRevealClick = () => {
+    setRevealed(revealed => !revealed)
   }
 
   const handleNextClick = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     event.stopPropagation()
     setRevealed(false)
 
     if (currentWordIndex === words.length - 1) {
-      const wordList = getWordList(lessonId)
-      if (wordList !== null) {
-        setWords(shuffle(filterWords(wordList.words, location.search)))
+      if (data) {
+        setWords(shuffle(filterWords(data, location.search, favorites)))
         setCurrentWordIndex(0)
       }
     } else {
@@ -83,7 +85,7 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
     setIsSettingsDialogOpen(true)
   }
 
-  const currentWord = words[currentWordIndex]
+  const currentWord = word
 
   return (
     <div className={styles.container}>
@@ -102,7 +104,12 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
         <>
           <div className={styles.questionContainer}>
             {!settings.hidden.characters && (
-              <p className={styles.word}>{currentWord.name}</p>
+              <SpeechButton
+                iconClassName={styles.speechIcon}
+                text={currentWord.name}
+              >
+                <p className={styles.word}>{currentWord.name}</p>
+              </SpeechButton>
             )}
             {!settings.hidden.piyin && (
               <p className={styles.piyin}>{currentWord.piyin}</p>
@@ -110,36 +117,63 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
             {!settings.hidden.description && (
               <p className={styles.description}>{currentWord.description}</p>
             )}
-            <SpeechButton
-              className={styles.speechBtn}
-              iconClassName={styles.speechIcon}
-              text={currentWord.name}
-            />
           </div>
-          <div className={styles.answerContainer}>
-            <div
-              className={classNames(styles.coverOverlay, {
-                [styles.hideCoverOverlay]: revealed,
-              })}
-              onClick={handleAnswerClick}
-            >
-              Reveal
-            </div>
-            <div className={styles.answerContent}>
-              {settings.hidden.characters && (
+          <p className={styles.answerLabel}>ANSWER</p>
+          <div
+            className={classNames(styles.answerContainer, {
+              [styles.hideAnswer]: !revealed,
+            })}
+          >
+            {settings.hidden.characters && (
+              <SpeechButton
+                iconClassName={styles.speechIcon}
+                text={currentWord.name}
+              >
                 <p className={styles.word}>{currentWord.name}</p>
-              )}
-              {settings.hidden.piyin && (
-                <p className={styles.piyin}>{currentWord.piyin}</p>
-              )}
-              {settings.hidden.description && (
-                <p className={styles.description}>{currentWord.description}</p>
+              </SpeechButton>
+            )}
+            {settings.hidden.piyin && (
+              <p className={styles.piyin}>{currentWord.piyin}</p>
+            )}
+            {settings.hidden.description && (
+              <p className={styles.description}>{currentWord.description}</p>
+            )}
+          </div>
+          <div className={styles.controlsContainer}>
+            <div className={classNames(styles.button, styles.favoriteButton)}>
+              <FontAwesomeIcon icon="star" className={styles.buttonIcon} />
+              <span>Favorite</span>
+            </div>
+            <div
+              className={classNames(styles.button, styles.revealButton)}
+              onClick={handleRevealClick}
+            >
+              {revealed ? (
+                <>
+                  <FontAwesomeIcon
+                    icon="eye-slash"
+                    className={styles.buttonIcon}
+                  />
+                  <span>Hide</span>
+                </>
+              ) : (
+                <>
+                  <FontAwesomeIcon icon="eye" className={styles.buttonIcon} />
+                  <span>Reveal</span>
+                </>
               )}
             </div>
 
-            <button className={styles.nextBtn} onClick={handleNextClick}>
-              <FontAwesomeIcon icon="arrow-alt-circle-right" />
-            </button>
+            <div
+              className={classNames(styles.button, styles.nextButton)}
+              onClick={handleNextClick}
+            >
+              <FontAwesomeIcon
+                icon="arrow-right"
+                className={styles.buttonIcon}
+              />
+              <span>Next</span>
+            </div>
           </div>
         </>
       ) : (

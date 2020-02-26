@@ -33,3 +33,6 @@ export const getPracticeOptions = (wordCount: number) => {
 
   return practiceOptions
 }
+
+export const isChineseCharacter = (character: string): boolean =>
+  /[\u3400-\u9FBF]/.test(character)

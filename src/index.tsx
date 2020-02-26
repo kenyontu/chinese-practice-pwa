@@ -1,15 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import './assets/Share-Regular.ttf'
 import 'normalize.css'
 import './index.css'
 import * as serviceWorker from './serviceWorker'
 import { UpdateProvider } from './context/updateContext'
 import './setup'
 import App from './app/App'
+import { DataContextProvider } from './context/dataContext'
 
 ReactDOM.render(
   <UpdateProvider>
-    <App />
+    <DataContextProvider>
+      <App />
+    </DataContextProvider>
   </UpdateProvider>,
   document.getElementById('root')
 )

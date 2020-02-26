@@ -1,6 +1,6 @@
 {
   "name": "chinese-practice-pwa",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -11,7 +11,8 @@
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
     "lint:fix": "yarn lint --fix",
     "data:add-ids": "node ./scripts/add_ids_to_source_data.js",
-    "data:parse": "node ./scripts/parse_data.js && prettier --write \"./src/data/*.ts\""
+    "data:parse": "node ./scripts/parse_data.js && prettier --write \"./src/data/*.ts\"",
+    "data:parse2": "node ./scripts/parse_data_2.js && prettier --write \"./src/data/data.ts\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -19,6 +20,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "classnames": "^2.2.6",
+    "hanzi-writer": "^2.2.0",
     "immer": "^4.0.2",
     "lodash": "^4.17.15",
     "normalize.css": "^8.0.1",
@@ -26,7 +28,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-icons": "^3.7.0",
-    "react-router-dom": "^5.0.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "^3.1.2",
     "react-spring": "^9.0.0-beta.34"
   },
@@ -40,7 +42,7 @@
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/react-icons": "^3.0.0",
-    "@types/react-router-dom": "^4.3.5",
+    "@types/react-router-dom": "^5.1.3",
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "@typescript-eslint/parser": "^2.0.0",
     "eslint": "^6.2.2",

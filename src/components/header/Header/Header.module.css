@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  transition: top 0.2s ease-in-out;
+}
+
+.header {
+  background-color: var(--header-bg-clr);
+  color: var(--header-content-clr);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.2rem;
+  height: var(--header-height);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11;
+}
+
+.hideHeader {
+  top: calc(-1 * var(--header-height));
+}
+
+.rightContainer {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}

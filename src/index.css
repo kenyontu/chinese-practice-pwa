@@ -1,20 +1,67 @@
-html {
+:root {
+  /* General */
+  --primary-clr: #3ab29a;
+  --secondary-clr: #2875bd;
+  --tertiary-clr: #98b0aa;
+  --text-clr: #333;
+  --bg-clr: #f8f8f8;
+  --list-divider-clr: #eee;
+
+  --button-size: 1.2rem;
+
+  /* Header */
   --header-height: 3rem;
+  --header-bg-clr: var(--primary-clr);
+  --header-content-clr: white;
+
+  /* Tabs */
+  --tabs-height: 2.9rem;
+  --tab-bg-clr: white;
+  --tab-content-on-clr: var(--primary-clr);
+  --tab-content-off-clr: var(--tertiary-clr);
+  --tab-selected-clr: var(--primary-clr);
+  --tab-active-bg-clr: var(--primary-clr);
+  --tab-active-clr: white;
+
+  /* Categories page */
+  --categories-group-header-bg-clr: white;
+  --categories-group-header-name-clr: var(--primary-clr);
+  --categories-group-header-expand-icon-clr: #98b0aa;
+  --categories-item-bg-clr: white;
+  --categories-item-border-clr: #e3e3e3;
+  --categories-item-pri-content-clr: var(--secondary-clr);
+  --categories-item-sec-content-clr: #a7a7a7;
+  --categories-item-progressBar-clr: #c3ddf5;
+  --categories-item-progressBar-progress-clr: var(--secondary-clr);
+
+  /* Words page */
+  --words-item-name: var(--primary-clr);
+  --words-item-piyin-clr: #333;
+  --words-item-description-clr: #333;
+
+  /* Word details page */
+  --word-name-clr: var(--primary-clr);
+  --word-piyin-clr: var(--text-clr);
+  --word-description-clr: var(--text-clr);
+  --word-stroke-order-play-btn-clr: var(--primary-clr);
+
+  /* old */
   --header-background: #111;
   --accent-color: #00a8e8;
   --list-separator-color: #eee;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #333;
 }
 
 html,
 body,
 #root {
   height: 100%;
+  background-color: var(--bg-clr);
 }
 
 * {
