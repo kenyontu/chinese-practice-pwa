@@ -54,7 +54,7 @@
   font-weight: 600;
   font-size: 0.8rem;
   text-align: center;
-  padding: 0.2rem 0;
+  padding: 0.3rem 0 0.28rem 0;
   border-top: 1px solid var(--list-divider-clr);
   border-bottom: 1px solid var(--list-divider-clr);
   color: #ccc;
@@ -131,4 +131,27 @@
 .revealButton > .buttonIcon,
 .nextButton > .buttonIcon {
   color: var(--primary-clr);
+}
+
+.noWordsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: white;
+  border-bottom: 1px solid var(--list-divider-clr);
+}
+
+.noWordsMessage {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.showAllWordsButton {
+  background-color: var(--primary-clr);
+  color: white;
+  padding: 0.8rem 1rem;
+  margin-top: 1.3rem;
+  border: none;
+  border-radius: 0.3rem;
 }

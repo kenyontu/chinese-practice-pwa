@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { RouteComponentProps, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
@@ -8,7 +8,6 @@ import { useGetData } from '../context/dataContext'
 import Header from '../components/header/Header'
 import HeaderButton from '../components/header/HeaderButton'
 import Tabs from '../components/Tabs/index'
-import ActionDialog from '../components/ActionDialog'
 import useLocalStorage from '../hooks/useLocalStorage'
 import useFavoriteWords from '../hooks/useFavoriteWords'
 
@@ -25,7 +24,6 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
       wordId => data.wordsById[wordId]
     ),
   }))
-  const [isActionDialogOpen, setIsActionDialogOpen] = useState(false)
   const [openTabId, setOpenTabId] = useOpenTabId()
   const {
     favorites,
@@ -42,22 +40,12 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
     history.push(`/categories/${categoryId}/practice`)
   }
 
-  const handleOpenActionsClick = () => {
-    setIsActionDialogOpen(true)
-  }
-
-  const handleActionDialogClose = () => {
-    setIsActionDialogOpen(false)
-  }
-
   const handleAddAllToFavoritesClick = () => {
     markAsFavorite(words.map(w => w.id))
-    setIsActionDialogOpen(false)
   }
 
   const handleRemoveAllFavoritesClick = () => {
     removeAllFavorites()
-    setIsActionDialogOpen(false)
   }
 
   const wordsToRender =
@@ -67,40 +55,18 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
     <div className={styles.container}>
       <Header
         title={category.name}
-        right={
-          <>
-            <HeaderButton onClick={handlePracticeClick} icon="dumbbell" />
-            <HeaderButton onClick={handleOpenActionsClick} icon="ellipsis-v" />
-          </>
-        }
+        right={<HeaderButton onClick={handlePracticeClick} icon="dumbbell" />}
         hasNavigateBack
         bottom={
           <Tabs
             openTabId={openTabId}
             onTabClick={handleTabClick}
             tabs={[
-              { id: allTabId, text: 'All' },
-              { id: favoritesTabId, text: 'Favorites' },
+              { id: allTabId, text: 'All words' },
+              { id: favoritesTabId, text: 'Favorites', icon: 'star' },
             ]}
           />
         }
-      />
-
-      <ActionDialog
-        isOpen={isActionDialogOpen}
-        onClose={handleActionDialogClose}
-        actions={[
-          {
-            id: 'allfav',
-            label: 'Add all words to favorites',
-            onClick: handleAddAllToFavoritesClick,
-          },
-          {
-            id: 'clearfav',
-            label: 'Remove all favorites',
-            onClick: handleRemoveAllFavoritesClick,
-          },
-        ]}
       />
 
       {wordsToRender.map(word => (

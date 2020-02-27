@@ -13,6 +13,7 @@ import CategoriesPage from '../pages/CategoriesPage/index'
 import WordsPage from '../pages/WordsPage'
 import WordDetailsPage from '../pages/WordDetailsPage/index'
 import PracticePage from '../pages/PracticePage'
+import PracticeSettingsPage from '../pages/settings/PracticeSettingsPage'
 
 const ScrollToTop = () => {
   const { pathname } = useLocation()
@@ -41,6 +42,7 @@ function App() {
           />
           <Route path="/categories" component={CategoriesPage} />
           <Route path="/words/:word_id" component={WordDetailsPage} />
+          <Route path="/settings/practice" component={PracticeSettingsPage} />
           <Redirect to="/categories" />
         </Switch>
       </Router>

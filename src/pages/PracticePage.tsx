@@ -2,60 +2,53 @@ import React, { useState, useEffect } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import classNames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { PracticeSettings } from 'types'
+import produce from 'immer'
+import { Settings } from 'types'
 
 import styles from './PracticePage.module.css'
 import Header from '../components/header/Header'
 import HeaderButton from '../components/header/HeaderButton'
 import SpeechButton from '../components/SpeechButton'
-import PracticeSettingsDialog from '../components/PracticeSettingsDialog'
-import useLocalStorage from '../hooks/useLocalStorage'
+import useSettings from '../hooks/useSettings'
 import { shuffle } from '../utils'
 import useFavoriteWords from '../hooks/useFavoriteWords'
 import { useGetData } from '../context/dataContext'
 
-const filterWords = (
-  wordIds: string[],
-  query: string,
-  favorites: { [key: string]: boolean }
-) => {
-  const params = new URLSearchParams(query)
-  if (params.get('mode') === 'fav') {
-    return wordIds.filter(w => favorites[w])
-  }
-
-  return wordIds
-}
-
 type Props = {} & RouteComponentProps<{ category_id: string }>
 
-const defaultSettings: PracticeSettings = {
-  hidden: {
-    characters: false,
-    piyin: true,
-    description: false,
-  },
-}
-
-const PracticePage: React.FC<Props> = ({ match, location }) => {
+const PracticePage: React.FC<Props> = ({ match, history }) => {
   const categoryId = match.params.category_id
-  const data = useGetData(data => data.wordsByCategory[categoryId])
   const [words, setWords] = useState<string[]>([])
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
-  const word = useGetData(data => data.wordsById[words[currentWordIndex]])
   const [revealed, setRevealed] = useState(false)
-  const [isSettingsDialogOpen, setIsSettingsDialogOpen] = useState(false)
-  const [settings, setSettings] = useLocalStorage<PracticeSettings>(
-    'practice-settings',
-    defaultSettings
+
+  const data = useGetData(data => data.wordsByCategory[categoryId] || [])
+  const currentWord = useGetData(
+    data => data.wordsById[words[currentWordIndex]]
   )
-  const { favorites } = useFavoriteWords(categoryId)
+  const [settings, setSettings] = useSettings()
+  const { favorites, markAsFavorite, unmarkAsFavorite } = useFavoriteWords(
+    categoryId
+  )
 
   useEffect(() => {
-    if (data) {
-      setWords(shuffle(filterWords(data, location.search, favorites)))
+    // Happens when the category id is invalid
+    if (data.length === 0) {
+      // Ends the function execution to avoid infinite effect call
+      return
     }
-  }, [categoryId, location.search, data, favorites])
+    if (settings.practice.display === 'f') {
+      // Only filter out favorites when the data or display mode changes.
+      // Changes for when the user toggles a favorite will be handled
+      // separatedly.
+      setWords(shuffle(data.filter(w => favorites[w])))
+    } else {
+      setWords(shuffle(data))
+    }
+    // Disabling the exhaustive-deps rule to not include the 'favorites' dep
+    // TODO: find a way to not deactivate the rule
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, settings.practice.display])
 
   const handleRevealClick = () => {
     setRevealed(revealed => !revealed)
@@ -67,43 +60,63 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
     event.stopPropagation()
     setRevealed(false)
 
-    if (currentWordIndex === words.length - 1) {
-      if (data) {
-        setWords(shuffle(filterWords(data, location.search, favorites)))
-        setCurrentWordIndex(0)
-      }
-    } else {
+    if (currentWordIndex < words.length - 1) {
       setCurrentWordIndex(currentWordIndex + 1)
+    } else {
+      if (settings.practice.display === 'f') {
+        setWords(shuffle(data.filter(w => favorites[w])))
+      } else {
+        setWords(shuffle(data))
+      }
+      setCurrentWordIndex(0)
     }
   }
 
-  const onSettingsChange = (newSettings: PracticeSettings) => {
-    setSettings(newSettings)
-  }
-
   const handleSettingsClick = () => {
-    setIsSettingsDialogOpen(true)
+    history.push(`/settings/practice`)
   }
 
-  const currentWord = word
+  const handleFavoriteClick = (wordId: string) => () => {
+    if (favorites[wordId] === true) {
+      // If the current display mode is set to only show favorites,
+      // Remove the word from the words array
+      unmarkAsFavorite(wordId)
+
+      if (settings.practice.display === 'f') {
+        // If the word being removed from the favorites is the last,
+        // decrement the current index, preventing it from referencing
+        // a position that does not exist
+        if (currentWordIndex === words.length - 1 && currentWordIndex > 0) {
+          setCurrentWordIndex(currentWordIndex - 1)
+        }
+        setWords(words.filter(w => w !== wordId))
+      }
+    } else {
+      markAsFavorite(wordId)
+    }
+  }
+
+  const handleShowAllWordsClick = () => {
+    setSettings(
+      produce(settings, (draft: Settings) => {
+        draft.practice.display = 'a'
+      })
+    )
+  }
 
   return (
     <div className={styles.container}>
-      <PracticeSettingsDialog
-        isOpen={isSettingsDialogOpen}
-        onClose={() => setIsSettingsDialogOpen(false)}
-        settings={settings}
-        onSettingsChange={onSettingsChange}
-      />
       <Header
-        title={`${currentWordIndex + 1}/${words.length}`}
+        title={`${words.length > 0 ? currentWordIndex + 1 : 0}/${words.length}${
+          settings.practice.display === 'f' ? ' ★' : ''
+        }`}
         hasNavigateBack
         right={<HeaderButton icon="cog" onClick={handleSettingsClick} />}
       />
       {words.length > 0 ? (
         <>
           <div className={styles.questionContainer}>
-            {!settings.hidden.characters && (
+            {settings.practice.mode === 'cc' && (
               <SpeechButton
                 iconClassName={styles.speechIcon}
                 text={currentWord.name}
@@ -111,10 +124,10 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
                 <p className={styles.word}>{currentWord.name}</p>
               </SpeechButton>
             )}
-            {!settings.hidden.piyin && (
+            {settings.practice.mode === 'p' && (
               <p className={styles.piyin}>{currentWord.piyin}</p>
             )}
-            {!settings.hidden.description && (
+            {settings.practice.mode === 'd' && (
               <p className={styles.description}>{currentWord.description}</p>
             )}
           </div>
@@ -124,7 +137,7 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
               [styles.hideAnswer]: !revealed,
             })}
           >
-            {settings.hidden.characters && (
+            {settings.practice.mode !== 'cc' && (
               <SpeechButton
                 iconClassName={styles.speechIcon}
                 text={currentWord.name}
@@ -132,15 +145,20 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
                 <p className={styles.word}>{currentWord.name}</p>
               </SpeechButton>
             )}
-            {settings.hidden.piyin && (
+            {settings.practice.mode !== 'p' && (
               <p className={styles.piyin}>{currentWord.piyin}</p>
             )}
-            {settings.hidden.description && (
+            {settings.practice.mode !== 'd' && (
               <p className={styles.description}>{currentWord.description}</p>
             )}
           </div>
           <div className={styles.controlsContainer}>
-            <div className={classNames(styles.button, styles.favoriteButton)}>
+            <div
+              className={classNames(styles.button, styles.favoriteButton, {
+                [styles.favoriteButtonOn]: favorites[currentWord.id],
+              })}
+              onClick={handleFavoriteClick(currentWord.id)}
+            >
               <FontAwesomeIcon icon="star" className={styles.buttonIcon} />
               <span>Favorite</span>
             </div>
@@ -177,7 +195,27 @@ const PracticePage: React.FC<Props> = ({ match, location }) => {
           </div>
         </>
       ) : (
-        <p>There are no words on this lesson</p>
+        <div className={styles.noWordsContainer}>
+          {settings.practice.display === 'f' ? (
+            <>
+              <p className={styles.noWordsMessage}>
+                Your current setting is set to only display favorite words. You
+                can add some words to your favorites or change your settings to
+                show all words
+              </p>
+              <button
+                className={styles.showAllWordsButton}
+                onClick={handleShowAllWordsClick}
+              >
+                Show all words
+              </button>
+            </>
+          ) : (
+            <p className={styles.noWordsMessage}>
+              There are no words on this lesson
+            </p>
+          )}
+        </div>
       )}
     </div>
   )

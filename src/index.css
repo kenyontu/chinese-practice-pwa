@@ -4,8 +4,8 @@
   --secondary-clr: #2875bd;
   --tertiary-clr: #98b0aa;
   --text-clr: #333;
-  --bg-clr: #f8f8f8;
-  --list-divider-clr: #eee;
+  --bg-clr: #efefef;
+  --list-divider-clr: #e6e6e6;
 
   --button-size: 1.2rem;
 
@@ -26,9 +26,9 @@
   /* Categories page */
   --categories-group-header-bg-clr: white;
   --categories-group-header-name-clr: var(--primary-clr);
-  --categories-group-header-expand-icon-clr: #98b0aa;
+  --categories-group-header-expand-icon-clr: #bbb;
   --categories-item-bg-clr: white;
-  --categories-item-border-clr: #e3e3e3;
+  --categories-item-border-clr: var(--list-divider-clr);
   --categories-item-pri-content-clr: var(--secondary-clr);
   --categories-item-sec-content-clr: #a7a7a7;
   --categories-item-progressBar-clr: #c3ddf5;

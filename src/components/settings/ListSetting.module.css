@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.settingContainer {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  background-color: white;
+}
+
+.settingContainer + .settingContainer {
+  border-top: 1px solid var(--list-divider-clr);
+}
+
+.settingDescriptionContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.settingName {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.settingDescription {
+  font-size: 0.8rem;
+  color: #bbb;
+}
+
+.checkIcon {
+  color: var(--primary-clr);
+  font-size: 1rem;
+}

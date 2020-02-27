@@ -22,15 +22,16 @@ declare module 'types' {
     name: string
   }
 
-  export type PracticeSettingHiddenKeys = 'characters' | 'piyin' | 'description'
+  export type PracticeSettingModes = 'cc' | 'p' | 'd'
+  export type PracticeSettingDisplay = 'a' | 'f'
 
   export interface PracticeSettings {
-    hidden: {
-      [key: string]: boolean
-      characters: boolean
-      piyin: boolean
-      description: boolean
-    }
+    mode: PracticeSettingModes
+    display: PracticeSettingDisplay
+  }
+
+  export interface Settings {
+    practice: PracticeSettings
   }
 
   export interface PartialData {
