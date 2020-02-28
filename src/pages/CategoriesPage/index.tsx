@@ -51,9 +51,8 @@ const CategoriesPage: React.FC = () => {
             ]}
           />
         }
-        right={<HeaderButton icon="cog" onClick={() => {}} />}
       />
-
+      {/* right={<HeaderButton icon="cog" onClick={() => {}} />} */}
       {categoryGroups.map(categoryGroup => {
         return (
           <div key={categoryGroup.id} className={styles.group}>

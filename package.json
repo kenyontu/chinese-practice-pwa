@@ -12,7 +12,7 @@
     "lint:fix": "yarn lint --fix",
     "data:add-ids": "node ./scripts/add_ids_to_source_data.js",
     "data:parse": "node ./scripts/parse_data.js && prettier --write \"./src/data/*.ts\"",
-    "data:parse2": "node ./scripts/parse_data_2.js && prettier --write \"./src/data/data.ts\""
+    "data:parse2": "node ./scripts/parse_data_2.js && prettier --write \"./src/data/partialData.ts\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
