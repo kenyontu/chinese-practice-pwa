@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import throttle from 'lodash/throttle'
 
 const SCROLL_DELTA = 10
-const HEADER_HEIGHT = 30
+const HEADER_HEIGHT = 58
 
 const useIsHeaderVisible = () => {
   const [previousScrollPos, setPreviousScrollPos] = useState(0)
@@ -20,13 +20,9 @@ const useIsHeaderVisible = () => {
         currentScrollPos > previousScrollPos &&
         currentScrollPos > HEADER_HEIGHT
       ) {
-        if (isVisible === true) {
-          setIsVisible(false)
-        }
+        setIsVisible(false)
       } else {
-        if (isVisible === false) {
-          setIsVisible(true)
-        }
+        setIsVisible(true)
       }
 
       setPreviousScrollPos(currentScrollPos)

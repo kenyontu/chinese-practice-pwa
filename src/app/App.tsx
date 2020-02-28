@@ -1,29 +1,49 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
+  useLocation,
+  useHistory,
 } from 'react-router-dom'
 
 import UpdateMessage from '../components/UpdateMessage'
-import LessonsPage from '../pages/LessonsPage'
+import CategoriesPage from '../pages/CategoriesPage/index'
 import WordsPage from '../pages/WordsPage'
+import WordDetailsPage from '../pages/WordDetailsPage/index'
 import PracticePage from '../pages/PracticePage'
+import PracticeSettingsPage from '../pages/settings/PracticeSettingsPage'
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation()
+  const { action } = useHistory()
+
+  useEffect(() => {
+    if (action === 'PUSH') {
+      window.scrollTo(0, 0)
+    }
+  }, [pathname, action])
+
+  return null
+}
 
 function App() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Switch>
-          <Route path="/lessons/:lesson_id" exact component={WordsPage} />
+          <Route path="/categories/:category_id" exact component={WordsPage} />
           <Route
-            path="/lessons/:lesson_id/practice"
+            path="/categories/:category_id/practice"
             exact
             component={PracticePage}
           />
-          <Route path="/lessons" component={LessonsPage} />
-          <Redirect to="/lessons" />
+          <Route path="/categories" component={CategoriesPage} />
+          <Route path="/words/:word_id" component={WordDetailsPage} />
+          <Route path="/settings/practice" component={PracticeSettingsPage} />
+          <Redirect to="/categories" />
         </Switch>
       </Router>
       <UpdateMessage />

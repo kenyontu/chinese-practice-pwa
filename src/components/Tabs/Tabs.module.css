@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  background-color: var(--tab-bg-clr);
+  height: var(--tabs-height);
+  border-bottom: 1px solid var(--tab-selected-clr);
+}
+
+.tab {
+  --top-padding: 5px;
+  --bottom-padding: calc(var(--top-padding) - 1px);
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  color: var(--tab-content-off-clr);
+  padding: var(--top-padding) 0 var(--bottom-padding) 0;
+  box-sizing: border-box;
+}
+
+.tab.selected {
+  color: var(--tab-content-on-clr);
+  padding: var(--top-padding) 0 0 0;
+  border-bottom: var(--bottom-padding) solid var(--tab-selected-clr);
+}
+
+.tab:active {
+  color: var(--tab-active-bg-clr);
+  background-color: var(--tab-active-clr);
+}
+
+.tab .icon {
+  margin-right: 0.7rem;
+  font-size: 1.1rem;
+}
+
+.tab .text {
+  font-size: 1rem;
+}
