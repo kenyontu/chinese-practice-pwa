@@ -39,6 +39,7 @@ const parse = async () => {
 
     for (let i = 0; i < lines.length; i++) {
       const [id, name, piyin, description] = lines[i].split(LINE_SPLIT_CHAR)
+      if (!id) continue
 
       wordsById[id] = {
         id,
