@@ -102,7 +102,7 @@ const data: Data = {
       'B3L13',
       'B3L14',
     ],
-    B4: ['B4L1', 'B4L2', 'B4L3'],
+    B4: ['B4L1', 'B4L2', 'B4L3', 'B4L4'],
     others: ['chengyu', 'extra'],
     T1: ['T1-1', 'T1-2'],
     T2: ['T2-1', 'T2-2'],
