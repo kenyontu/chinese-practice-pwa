@@ -25,7 +25,7 @@ interface Registration {
 }
 
 export type AppUpdateReadyEvent = CustomEvent<{ skipWaiting: () => void }>
-
+debugger
 serviceWorker.register({
   onUpdate: (registration: Registration) => {
     // Triggers the skipWaiting function in the waiting service worker
