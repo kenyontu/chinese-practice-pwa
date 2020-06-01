@@ -112,6 +112,7 @@ const data: Data = {
       'B4L7',
       'B4L8',
       'B4L9',
+      'B4L10',
     ],
     others: ['chengyu', 'extra'],
     T1: ['T1-1', 'T1-2'],
