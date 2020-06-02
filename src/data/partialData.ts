@@ -11437,7 +11437,7 @@ const partialData: PartialData = {
     sacy6n36vN: {
       id: 'sacy6n36vN',
       name: '對面',
-      piyin: 'duì muàn',
+      piyin: 'duì miàn',
       description: 'right in front, opposite or facing side',
     },
     '-zVwKdGiaB': {
