@@ -12054,7 +12054,7 @@ const partialData: PartialData = {
     TXKJQ3UpziQ: {
       id: 'TXKJQ3UpziQ',
       name: '衛生紙',
-      piyin: 'wēi shēng zhǐ',
+      piyin: 'wèi shēng zhǐ',
       description: 'toilet paper',
     },
     z1iGboCzcC7: {
