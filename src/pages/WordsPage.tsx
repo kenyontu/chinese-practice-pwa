@@ -25,12 +25,9 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
     ),
   }))
   const [openTabId, setOpenTabId] = useOpenTabId()
-  const {
-    favorites,
-    markAsFavorite,
-    unmarkAsFavorite,
-    removeAllFavorites,
-  } = useFavoriteWords(categoryId)
+  const { favorites, markAsFavorite, unmarkAsFavorite } = useFavoriteWords(
+    categoryId
+  )
 
   const handleTabClick = (tabId: string) => {
     setOpenTabId(tabId)
@@ -38,18 +35,6 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
 
   const handlePracticeClick = () => {
     history.push(`/categories/${categoryId}/practice`)
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // eslint-disable-next-line no-unused-vars
-  const handleAddAllToFavoritesClick = () => {
-    markAsFavorite(words.map(w => w.id))
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // eslint-disable-next-line no-unused-vars
-  const handleRemoveAllFavoritesClick = () => {
-    removeAllFavorites()
   }
 
   const wordsToRender =
