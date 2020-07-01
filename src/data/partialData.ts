@@ -12578,7 +12578,7 @@ const partialData: PartialData = {
     },
     'VE7-lpaZUgM': {
       id: 'VE7-lpaZUgM',
-      name: '環境保護（huán bǎo）',
+      name: '環境保護（環保）',
       piyin: 'huán jìng bǎo hù（huán bǎo）',
       description: 'environmental protection',
     },
