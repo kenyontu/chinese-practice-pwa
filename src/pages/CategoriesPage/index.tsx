@@ -6,7 +6,6 @@ import { useGetData } from '../../context/dataContext'
 import useLocalStorage from '../../hooks/useLocalStorage'
 import styles from './CategoriesPage.module.css'
 import Header from '../../components/header/Header'
-import HeaderButton from '../../components/header/HeaderButton'
 import Tabs from '../../components/Tabs'
 import CategoryListItem from './CategoryListItem'
 

@@ -40,10 +40,14 @@ const WordsPage: React.FC<Props> = ({ match, history }) => {
     history.push(`/categories/${categoryId}/practice`)
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   const handleAddAllToFavoritesClick = () => {
     markAsFavorite(words.map(w => w.id))
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   const handleRemoveAllFavoritesClick = () => {
     removeAllFavorites()
   }
