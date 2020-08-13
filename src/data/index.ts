@@ -23,6 +23,10 @@ const data: Data = {
       id: 'B4',
       name: 'Book 4',
     },
+    B5: {
+      id: 'B5',
+      name: 'Book 5',
+    },
     others: {
       id: 'others',
       name: 'Others',
@@ -118,6 +122,7 @@ const data: Data = {
       'B4L13',
       'B4L14',
     ],
+    B5: ['B5L1'],
     others: ['chengyu', 'extra'],
     T1: ['T1-1', 'T1-2'],
     T2: ['T2-1', 'T2-2'],
@@ -190,7 +195,7 @@ const data: Data = {
       'T7-27',
     ],
   },
-  bookGroups: ['B1', 'B2', 'B3', 'B4', 'others'],
+  bookGroups: ['B1', 'B2', 'B3', 'B4', 'B5', 'others'],
   tocflGroups: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
 }
 
