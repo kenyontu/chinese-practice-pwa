@@ -22,7 +22,7 @@
     "classnames": "^2.2.6",
     "hanzi-writer": "^2.2.0",
     "immer": "^4.0.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
     "query-string": "^6.8.3",
     "react": "^16.9.0",
